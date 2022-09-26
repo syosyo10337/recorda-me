@@ -1,24 +1,31 @@
-# README
+# 記録アプリ Recorda me
+  
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+---
+## 概要
+  
+  
+自身の就職活動用に作成したアプリケーションです。
 
-Things you may want to cover:
+勉強、スポーツや音楽の練習/活動などをスケジュールを立てて進めたたほうが建設的だとわかっているけど、
+計画を立てたり、進捗確認、モチベーション維持が難しいと思う人に向けて作ったサービスです。
 
-* Ruby version
+自分の活動を記録し、目に見える形で、学習量や他の活動とのバランスが見えるようにすることで、自分の活動を家計簿のように管理することを可能にします。
 
-* System dependencies
+---
+## 実装予定の機能
 
-* Configuration
+- 記録を保存する機能
+- 記録を表示する機能
+  - 項目別に総量を表示できる機能
+  - 一定期間における項目同士の活動量を対比的に表示する
+- ユーザ登録機能
+- 他の人の活動を閲覧する機能
+- 他人の活動をBookmarkする機能
 
-* Database creation
 
-* Database initialization
+---
 
-* How to run the test suite
+### 動機
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+自分自身物事に取り組む時に、ただ闇雲にするといつの間にかどうでも良くなったりしてしまう節があったので、最近巷にある高機能すぎる記録アプリと趣向を変え、少ない労力で記録をし、最大の効果、ここでいうモチベーションの向上や、進捗確認に活かせるようなものが欲しいと思った
