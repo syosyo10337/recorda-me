@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm bg-secondary">
+  <div class="container-lg">
+    <a class="navbar-brand fs-3 fw-light" href="#">Recorda Me</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav text-end">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link active",aria_current: "page" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

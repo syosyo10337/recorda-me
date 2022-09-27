@@ -1,14 +1,1 @@
 @import "~bootstrap/scss/bootstrap.scss";
-//修正用のcssはここに追記すると良さげ
-body {
-  letter-spacing: -0.01em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.btn {
-
-  border-radius: .1;
-  
-  }
-
-$model-inner-padding: 30px;
-$model-title-padding: 30px;
