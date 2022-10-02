@@ -15,12 +15,8 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="py-5 text-center container">
-      <% if notice %>
-        <p class="notice"><%= notice %></p>
-      <% end %>
-      <% if alert%>
-        <p class="alert"><%= alert %></p>
-      <% end %>
+        <p class="notice mb-0 text-success"><%= notice %></p>
+        <p class="alert mb-0 text-danger"><%= alert %></p>
         <%= yield %>
     </div>
   </body>
