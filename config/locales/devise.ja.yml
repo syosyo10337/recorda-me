@@ -43,7 +43,7 @@ ja:
     sessions:
       signed_in: 'ログインしました。'
       signed_out: 'ログアウトしました。'
-      already_signed_out: '既にログアウト済みです。'
+      already_signed_out: '既にログアウトしています。'
     unlocks:
       send_instructions: 'アカウントの凍結解除方法を数分以内にメールでご連絡します。'
       send_paranoid_instructions: 'アカウントが見つかった場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。'
@@ -56,5 +56,5 @@ ja:
       not_found: 'は見つかりませんでした。'
       not_locked: 'は凍結されていません。'
       not_saved:
-        one: "エラーが発生したため %{resource} は保存されませんでした:"
-        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
+        one: "エラーが発生したため、変更は保存できませんでした。"
+        other: "%{count}件のエラーが発生したため、変更は保存できませんでした。"

@@ -9,3 +9,18 @@ body {
   border-radius: .1;
   
   }
+
+  //動的エラーメッセージのスタイル調整
+  #error_explanation {
+    .alert {
+      margin-bottom: 0;
+      padding: 5px;
+    }
+    ul {
+      margin-bottom: 3px;
+      li {
+        list-style: none;
+      }
+    }
+  }
+

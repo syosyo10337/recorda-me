@@ -15,9 +15,8 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="py-5 text-center container">
-        <p class="notice mb-0 text-success"><%= notice %></p>
-        <p class="alert mb-0 text-danger"><%= alert %></p>
-        <%= yield %>
+      <%= render 'layouts/flash' %>
+      <%= yield %>
     </div>
   </body>
 </html>
