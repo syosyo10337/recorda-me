@@ -1,19 +1,18 @@
-<main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Recorda me<br>自分自身を記録しよう</h1>
-        <p class="lead text-muted">自分の活動を記録し、可視化する</p>
-        <p class="lead text-muted">
-        やりたいこと、やらなきゃいけないことがあるのに、うまく行動にうつせない...
-        Recorda meはそんな人のためのアプリです。<br>
-        このアプリを使えば、自分の頑張りがわかって、モチベーションが維持を助けます。
-        </p>
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <button class="btn btn-secondary" type="button">Sign up</button>
-          <button class="btn btn-outline-secondary" type="button">Login</button>
-        </div>
+<section class="container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Recorda me<br>自分自身を記録しよう</h1>
+      <p class="lead text-muted">自分の活動を記録し、可視化する</p>
+      <p class="lead text-muted">
+      やりたいこと、やらなきゃいけないことがあるのに、うまく行動にうつせない...
+      Recorda meはそんな人のためのアプリです。<br>
+      このアプリを使えば、自分の頑張りがわかって、モチベーションが維持を助けます。
+      </p>
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-secondary"%>
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-secondary"%>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
+

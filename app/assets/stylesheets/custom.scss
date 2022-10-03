@@ -9,12 +9,16 @@ body {
   border-radius: .1;
   
   }
-$model-inner-padding: 30px;
-$model-title-padding: 30px;
 
-
-
-:root {
-  --bs-link-color: #6c757d;
-  --bs-link-hover-color: #ca900a;
-}
+  //動的エラーメッセージのスタイル調整
+  #error_explanation {
+    .alert {
+      padding: 5px;
+    }
+    ul {
+      margin-bottom: 3px;
+      li {
+        list-style: none;
+      }
+    }
+  }
