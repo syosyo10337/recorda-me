@@ -8,9 +8,11 @@
        %>
     </h6>
     <ul>
-        <% resource.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
+
+    <%# errorメッセージ中の日本語化が、どうもわからないので、良くない条件分岐をとりあえず入れました。%>
+      <% resource.errors.full_messages.each do |message| %>
+        <li><%= message != "Current passwordを入力してください" ? message : "現在のパスワードを入力してください" %></li>
+      <% end %>
     </ul>
     </div>
    

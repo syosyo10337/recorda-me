@@ -17,6 +17,10 @@
     <div class="py-5 text-center container">
       <%= render 'layouts/flash' %>
       <%= yield %>
+      <br/>
+      <br><br><br><br>
+      <%= debug(params) if Rails.env.development? %>
+
     </div>
   </body>
 </html>

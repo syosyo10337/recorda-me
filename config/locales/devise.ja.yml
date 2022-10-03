@@ -9,18 +9,19 @@ ja:
     failure:
       already_authenticated: 'すでにログインしています。'
       inactive: 'アカウントが有効化されていません。メールに記載された手順にしたがって、アカウントを有効化してください。'
-      invalid: "%{authentication_keys} もしくはパスワードが不正です。"
+      invalid: "%{authentication_keys} もしくはパスワードが正しくありません。"
       locked: 'あなたのアカウントは凍結されています。'
       last_attempt: 'あなたのアカウントが凍結される前に、複数回の操作がおこなわれています。'
-      not_found_in_database: "%{authentication_keys} もしくはパスワードが不正です。"
+      not_found_in_database: "%{authentication_keys} もしくはパスワードが正しくありません"
       timeout: 'セッションがタイムアウトしました。もう一度ログインしてください。'
-      unauthenticated: 'アカウント登録もしくはログインしてください。'
+      unauthenticated: '会員登録もしくはログインしてください。'
       unconfirmed: 'メールアドレスの本人確認が必要です。'
     mailer:
       confirmation_instructions:
         subject: 'アカウントの有効化について'
       reset_password_instructions:
         subject: 'パスワードの再設定について'
+
       unlock_instructions:
         subject: 'アカウントの凍結解除について'
     omniauth_callbacks:
@@ -56,5 +57,5 @@ ja:
       not_found: 'は見つかりませんでした。'
       not_locked: 'は凍結されていません。'
       not_saved:
-        one: "エラーが発生したため、変更は保存できませんでした。"
-        other: "%{count}件のエラーが発生したため、変更は保存できませんでした。"
+        one: "問題があります。入力内容を確認してください。"
+        other: "%{count}箇所に問題があります。入力内容を確認してください。"

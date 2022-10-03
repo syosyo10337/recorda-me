@@ -1,15 +1,16 @@
-<h2 class="h3 mb-4">ログインフォーム</h2>
+<h3 class="mb-4">ログインフォーム</h3>
 
 <div class="row">
   <div class="col-md-6 m-auto">
     <%= form_with(model: @user, url: user_session_path) do |f| %>
       <div class="form-floating mb-2">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", id: "user_floatingInput", placeholder:"name@example.com"  %>
-        <%= f.label :floatingInput, "メールアドレス", class: "text-secondary"%>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", 
+        id: "user_floating_input", placeholder:"name@example.com" %>
+        <%= f.label :floating_input, "メールアドレス", class: "text-secondary"%>
       </div>
 
       <div class="form-floating">
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "user_floatingPassword", placeholder: "Password" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "user_password", placeholder: "Password" %>
         <%= f.label :password, "パスワード", class: "text-secondary" %>
       </div>
 

@@ -5,7 +5,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-    <%# case request.pathとかで active/aria_currentを付け替えられるかも%>
       <ul class="navbar-nav text-end">
         <li class="nav-item">
           <%= link_to "ホーム", root_path, class: "nav-link" %>
@@ -13,15 +12,18 @@
         <li class="nav-item">
           <%= link_to "Recorda meとは", about_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-        <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
-        </li>
+      <% if user_signed_in? %>
         <li class="nav-item">
         <%= link_to "設定", edit_user_registration_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+        <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
       </ul>
     </div>
   </div>

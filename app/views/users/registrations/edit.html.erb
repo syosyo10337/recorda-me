@@ -1,43 +1,44 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>プロフィールの編集</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<div class="row">
+  <div class="col-md-6 m-auto">
+    <%= form_with(model: @user, url: user_registration_path, html: { method: :put }) do |f| %>
+      <%= render "users/shared/error_messages" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field ">
+        <%= f.label :email,"メールアドレス" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+      </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <div class="field">
+        <%= f.label :password, "パスワード（最低#{@minimum_password_length}文字必要です）"%> 
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+      </div>
+
+      <div class="field ">
+        <%= f.label :password_confirmation, "確認用バスワード" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"%>
+      </div>
+
+      <div class="field mb-3">
+        <%= f.label :current_password,"現在(変更前)のパスワード" %> 
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control"%>
+      </div>
+
+      <div class="button mb-4">
+        <%= f.submit "更新する", class: "w-100 btn btn-lg btn-secondary ,mb-2" %>
+      </div>
     <% end %>
+    <br>
+    <br>
+    <br>
+
+    <h3 class="mt-5  pt-3 border-top border-dark">アカウントの削除</h3>
+    <%= button_to "アカウントを削除(この操作は取り消せません)", user_registration_path, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-warning"%>
+
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
