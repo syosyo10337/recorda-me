@@ -1,22 +1,22 @@
 <h2>パスワード忘れた方へ</h2>
-<p>ご登録いただいたメールアドレスを入力してください。<br>
+<p class="text-secondary">ご登録いただいたメールアドレスを入力してください。<br>
   メールアドレス宛に、パスワード変更ページのURLが記載されたメールを送信します。</p>
 <div class="row">
   <div class="col-md-6 m-auto">
-    <%= form_with(model: @user, url: user_password_path, html: { method: :post }) do |f| %>
-      <%= render "users/shared/error_messages" %>
-    
-      <div class="field mb-2 text-start">
-        <%= f.label :email, "登録いただいたメールアドレス" %>
+    <%= form_with(model: @user, url: user_password_path) do |f| %>
+      <%= render "devise/shared/error_messages" %>
+
+      <div class="field mb-3 text-start">
+        <%= f.label :email, "登録いただいたメールアドレス", class: "text-secondary" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
-    
+  </div>
+
       <div class="button">
         <%= f.submit "再設定メールを送信", class: "w-100 btn btn-lg btn-secondary ,mb-2" %>
-      </div>
-    <% end %>
+  </div>
+<% end %>
     
   </div>
 </div>
 
-<%= render "users/shared/links" %>
+<%= render "devise/shared/links" %>

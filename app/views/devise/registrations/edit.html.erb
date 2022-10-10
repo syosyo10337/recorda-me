@@ -1,0 +1,46 @@
+<h2>プロフィールの編集</h2>
+
+<div class="row">
+  <div class="col-md-6 m-auto">
+    <%= form_with(model: @user, url: user_registration_path) do |f| %>
+      <%= render "devise/shared/error_messages" %>
+
+      <div class="field text-secondary">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control"%>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field text-secondary">
+        <%= f.label :password, "新しいパスワード（最低#{@minimum_password_length}文字必要です）"%>
+        <small class="text-dark"><%= t(".leave_blank_if_you_don_t_want_to_change_it" )%></small> 
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+  </div>
+
+      <div class="field text-secondary">
+        <%= f.label :password_confirmation%>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"%>
+  </div>
+
+      <div class="field mb-3 text-secondary">
+        <%= f.label :current_password,"現在(変更前)のパスワード" %> 
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control"%>
+  </div>
+
+      <div class="button mb-4">
+        <%= f.submit "更新する", class: "w-100 btn btn-lg btn-secondary ,mb-2" %>
+  </div>
+<% end %>
+    <br>
+    <br>
+    <br>
+
+    <h3 class="mt-5 pt-4 border-top border-dark">アカウントの削除</h3>
+    <small>(この操作は取り消せません)</small>
+    <%= button_to "アカウントを削除", user_registration_path, data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-warning text-dark mt-1"%>
+
+    </div>
+  </div>
