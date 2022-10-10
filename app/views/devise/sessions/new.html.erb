@@ -1,26 +1,30 @@
-<h2>Log in</h2>
+<h3 class="mb-4">ログインフォーム</h3>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<div class="row">
+  <div class="col-md-6 m-auto">
+    <%= form_with(model: @user, url: user_session_path) do |f| %>
+      <div class="form-floating mb-2">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", 
+        id: "user_floating_input", placeholder:"name@example.com" %>
+        <%= f.label :floating_input, "メールアドレス", class: "text-secondary"%>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <div class="form-floating">
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "user_password", placeholder: "Password" %>
+        <%= f.label :password, class: "text-secondary" %>  
+      </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
+ 
+    <div class="checkbox m-3">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :remember_me %> 
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="button">
+    <%= f.submit "ログイン", class: "w-100 btn btn-lg btn-secondary mb-2" %>
   </div>
 <% end %>
+  <%= render "devise/shared/links" %>
+  </div>
+</div>
 
-<%= render "devise/shared/links" %>

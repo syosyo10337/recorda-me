@@ -1,28 +1,30 @@
-<h2>会員登録</h2>
+<h3 class="mb-4">新規会員登録</h3>
 
-<%= form_with(model: @user, url: user_registration_path) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="row">
+  <div class="col-md-6 m-auto">
+      <%= form_with(model: @user, url: user_registration_path) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field mb-2 text-start">
+    <%= f.label :email, class: "text-secondary" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+  <div class="field mb-2 text-start">
+    <%= f.label :password, class: "text-secondary" %>
+    <em class="text-secondary" >(<%= @minimum_password_length %>文字以上)</em>
+    <br/>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="field mb-3 text-start">
+    <%= f.label :password_confirmation, class: "text-secondary"%>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control
+    " %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="button mb-1">
+        <%= f.submit "登録する", class: "w-100 btn btn-lg btn-secondary ,mb-2" %>
   </div>
 <% end %>
 
