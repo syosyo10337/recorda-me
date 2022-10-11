@@ -4,4 +4,6 @@ FactoryBot.define do
     sequence(:email) { |n| "test#{n}@examle.com" }
     password { "dottle-nouveau-pavilion-tights-furze" }
   end
+
+  
 end
