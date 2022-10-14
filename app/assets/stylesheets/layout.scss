@@ -3,3 +3,29 @@
 #navbarNav {
   justify-content: end;
 }
+
+
+
+
+//debug_info
+
+.debug_dump {
+  width: 100%;
+  padding: 5px;
+  margin-top: 50px;
+  border: 3px solid grey;
+  border-radius: 20px;
+  backgroun-dcolor: azure;
+}
+
+
+
+//error-messages
+.field_with_errors {
+  .text-secondary {
+    color: #842029 !important;
+  }
+  .form-control {
+  border-color: #842029;
+  }
+}
