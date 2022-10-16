@@ -11,13 +11,13 @@ RSpec.describe User, type: :model do
     it "can not be blank" do
       user = FactoryBot.build(:user, name: nil)
       user.valid?
-      expect(user.errors.full_messages).to include("ニックネームを入力してください")
+      expect(user.errors.full_messages).to include("ユーザ名を入力してください")
     end
     #30文字以内に収まること
     it "is too long when the length is over 30 chars" do
       user = FactoryBot.build(:user, name: "あ" * 31 )
       user.valid?
-      expect(user.errors.full_messages).to include("ニックネームは30文字以内で入力してください")
+      expect(user.errors.full_messages).to include("ユーザ名は30文字以内で入力してください")
     end
   end
 
