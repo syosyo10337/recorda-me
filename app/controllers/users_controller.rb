@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  #仮で実装しました。
   def index
     @users = User.all
   end
