@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe "SignIns", type: :system do
   include LoginSupport
   before do
-    driven_by(:rack_test)
     @user = FactoryBot.create(:user)
   end
   #正常にログインし、ログアウトまでできること
