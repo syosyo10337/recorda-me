@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     root 'users#show', as: :authenticated_root
   end
 
-  get '/users/:id', to: 'users#show'
+  get '/users', to: 'users#index'
 
   root 'static_pages#home'
 

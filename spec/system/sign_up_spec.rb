@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "SignUps", type: :system do
-  before do
-    driven_by(:rack_test)
-  end
-
   #正常に会員登録ができること
   scenario "user sign-up successfully" do
     user = FactoryBot.build(:user)

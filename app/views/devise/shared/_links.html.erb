@@ -6,9 +6,10 @@
   <%= link_to "会員登録はこちらから", new_user_registration_path %><br />
 <% end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "パスワードを忘れた方はこちら", new_user_password_path %><br />
-<% end %>
+<%# 後でメール送信の機能を実装させます。%>
+<%# if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%#= link_to "パスワードを忘れた方はこちら", new_user_password_path %><br />
+<%# end %>
 
 <!-- 暫定使わないです -->
 <!-- <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

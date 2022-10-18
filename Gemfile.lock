@@ -202,6 +202,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    show_me_the_cookies (6.0.0)
+      capybara (>= 2, < 4)
     spring (4.1.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
@@ -262,6 +264,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver (>= 4.0.0.rc1)
+  show_me_the_cookies (~> 6.0)
   spring
   spring-commands-rspec
   sqlite3 (~> 1.4)
