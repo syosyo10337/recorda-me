@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :item do
-    name { "MyString" }
-    user { nil }
-    item_num { 1 }
+    name { "テスト項目A" }
+    association :user
+    item_num { nil }
   end
 end
