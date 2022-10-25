@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Log, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #amountが1kai120minが上限であること/最小でも1min 
+
+  #ログが時系列順にdescであること。
+  #itemsIDがあること。
 end

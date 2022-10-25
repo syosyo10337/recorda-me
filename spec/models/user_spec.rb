@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
     expect(FactoryBot.build(:user)).to be_valid
   end
 
-  describe "have name" do
+  describe "has name" do
     #名前がないと保存されないこと。
     it "can not be blank" do
       user = FactoryBot.build(:user, name: nil)
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "have email" do
+  describe "has email" do
     #(deviseの存在性バリデーションを確認)。
     it "can not be blank" do
       user = FactoryBot.build(:user, email: nil)
@@ -45,7 +45,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "have password" do
+  describe "has password" do
     #パスワードが空でないこと
     it "can not be blank" do
       user = FactoryBot.build(:user, password: nil)
@@ -58,9 +58,22 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors.full_messages).to include("パスワードは8文字以上で入力してください")
     end
-
-    
   end
 
+  #ユーザが削除された時に、itemが削除されること
+  describe "have associated models " do
+    let!(:user) { FactoryBot.create(:user) }
+    let!(:item) { FactoryBot.create(:item, user: user) }
+    let!(:log) { FactoryBot.create(:log, item: item) }
 
+     #ユーザが削除された時に、logも削除されること
+    it "associated items are destroyed" do
+      expect { user.destroy }.to change{ Item.count }.by(-1)
+    end
+
+     #ユーザが削除された時に、logも削除されること
+    it "associated logs are created" do
+      expect { user.destroy }.to change{ Log.count }.by(-1)
+    end
+  end
 end
