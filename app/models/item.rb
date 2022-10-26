@@ -2,18 +2,14 @@ class Item < ApplicationRecord
   belongs_to :user
   has_many :logs, dependent: :destroy
 
-  validates :user_id, presence: true
+  validates :user, presence: true
   validates :name, length: { in: 0..15 } 
-
-
-  # validates :maximum_twelve_per_user
-  #後で！
-  #ユーザが持てる項目数を制限したい。
-  #そもそもcreateがないならOK?
-
-
-
-
-
-
+  #アイテムの個数を制限したい。
+  # validate :limit_items_count_per_user
+  
+  # def limit_items_count_per_user
+  #   if Item.group(self.id).count > 12
+  #     errors.add(:item, "12まで")
+  #   end
+  # end
 end

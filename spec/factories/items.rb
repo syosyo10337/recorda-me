@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :item do
-    name { "テスト項目A" }
+    sequence(:name) { |n| "テスト項目#{n}" }
     association :user
     item_num { nil }
   end
