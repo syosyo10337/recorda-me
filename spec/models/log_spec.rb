@@ -4,7 +4,7 @@ RSpec.describe Log, type: :model do
   let(:user) { FactoryBot.create(:user) }
   let(:item) { FactoryBot.create(:item, user: user) }
   
-  #amountが1kai120minが上限であること/最小でも1min 
+  #amountが1回の記録で120minが上限であること/最小でも1min 
   it "is invalid with greater than 120" do
     log = FactoryBot.build(:log, item: item, amount: 121)
     log.valid?
