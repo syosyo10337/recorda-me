@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get '/about', to: 'static_pages#about'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   authenticated :user do
     root 'users#show', as: :authenticated_root
   end

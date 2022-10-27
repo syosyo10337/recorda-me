@@ -18,10 +18,9 @@ RSpec.describe "SignUps", type: :system do
       expect(page).to have_current_path authenticated_root_path
       expect(page).to have_content "アカウント登録が完了しました。"
       expect(page).to have_content user.name
-
-    }.to change { User.count }.by(1)
+    }.to change { User.count }.by(1).and change { Item.count }.by(12)
   end
-
+  #確認用パスワードがなく登録失敗すること 
   scenario "user fails to sign-up without password_confirmation" do
     user = FactoryBot.build(:user)
 
