@@ -1,7 +1,9 @@
 module LoginSupport
+  #ログインまでのステップを実行する
   def login_as(user)
     visit root_path
-    #ログイんページへ
+
+    #ログインページへのリンクをクリック
     find('.btn.btn-outline-secondary').click
 
     fill_in "メールアドレス", with: user.email
