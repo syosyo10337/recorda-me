@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
-  get 'item/index'
-  get 'item/edit'
+  get 'items/index'
+  get 'items/edit'
  
 
   get '/about', to: 'static_pages#about'
