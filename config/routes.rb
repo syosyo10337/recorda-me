@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
- 
-  get 'items/index'
-  get 'items/edit'
- 
-
+  resources :items, only: [:index, :edit, :update]
   get '/about', to: 'static_pages#about'
 
   devise_for :users, controllers: {
