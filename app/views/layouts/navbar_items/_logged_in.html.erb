@@ -1,0 +1,22 @@
+<%# ログインしているnavbar_items_partial %>
+<li class="nav-item">
+  <%= link_to "他のユーザをのぞく", "/users", class: "nav-link" %>
+  </li>
+<li class="nav-item dropdown">
+  <a class="dropdown-toggle nav-link" href="#"
+          role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    各種設定
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end bg-secondary" aria-labelledby="dropdownMenuButton1">
+    <li>
+      <%= link_to "活動項目", items_path, class: "dropdown-item text-end" %>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+      <%= link_to "ユーザ情報", edit_user_registration_path, class: "dropdown-item text-end" %>
+    </li>
+  </ul>
+</li>
+<li class="nav-item">
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>
+</li>
