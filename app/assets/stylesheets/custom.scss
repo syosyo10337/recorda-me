@@ -9,3 +9,15 @@ body {
   border-radius: .1;
   
   }
+
+//error-messages
+.field_with_errors {
+  display: inline;
+  .text-secondary {
+    color: #842029 !important;
+  }
+  .form-control {
+  border-color: #842029;
+  }
+}
+  

@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   resources :items, only: %i[index edit update]
   get '/about', to: 'static_pages#about'
 
-  devise_for :users, controllers: {
-    registrations: 'users/registrations'
-  }
   authenticated :user do
     root 'users#show', as: :authenticated_root
   end
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  
 
   get '/users', to: 'users#index'
 

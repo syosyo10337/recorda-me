@@ -27,3 +27,6 @@ ja:
         name: ユーザ名
     models:
       user: ユーザー
+    attributes:
+      item:
+        name: 項目名
