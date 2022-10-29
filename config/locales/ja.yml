@@ -25,8 +25,9 @@ ja:
         unlock_token: ロック解除用トークン
         updated_at: 更新日
         name: ユーザ名
-    models:
-      user: ユーザー
-    attributes:
       item:
         name: 項目名
+    models:
+      user: ユーザー
+
+      

@@ -1,8 +1,10 @@
 <div class="col-md-3">
   <div class="card my-1">
+    
     <div class="card-body">
-      <h5 class="card-title"><%= item.name %></h5>
-      <%= link_to "名前を編集する", edit_item_path(item), class: "btn btn-secondary btn-sm" %>
+      <h5 class="card-title" id="item-<%= item.id %>"><%= item.name %></h5>
+      <%= link_to "名前を編集する", edit_item_path(item), class: "btn btn-secondary btn-sm",
+      id: "edit-item-#{item.id}" %>
     </div>
   </div>
 </div>
