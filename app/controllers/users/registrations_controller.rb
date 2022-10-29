@@ -29,7 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       if resource.active_for_authentication?
         set_flash_message! :notice, :signed_up
         sign_up(resource_name, resource)
-        #defaultのアイテムを12個作成
+        # defaultのアイテムを12個作成
         generate_default_items_for(resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       else
@@ -80,7 +80,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  private 
+  private
+
   # ユーザにつき、デフォルトのアイテムを12個作成する
   def generate_default_items_for(user)
     12.times do |i|
