@@ -1,12 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'Items', type: :system, js: true do
+RSpec.describe 'EditItems', type: :system, js: true do
   include LoginSupport
-
   let(:user) { FactoryBot.create(:user, :with_items) }
 
   scenario 'user edit a item name' do
-    login_as(user)
+    login_as user
 
     click_on '各種設定'
     click_on '活動項目'
@@ -21,5 +20,17 @@ RSpec.describe 'Items', type: :system, js: true do
     expect(page).to have_content '記録中の活動項目一覧'
     expect(page).to have_content '新項目'
     expect(user.items[0].reload.name).to eq '新項目'
+  end
+
+  describe 'user edit only items their own' do
+    let(:other_user) { FactoryBot.create(:user, :with_items) }
+
+    # GET /item/:id/editで他人の項目編集に入ろうとした時
+    scenario 'when tring to visit other user items' do
+      login_as user
+      visit edit_item_path(other_user.items[0])
+      expect(page).to have_content '権限のない操作です。'
+      expect(current_path).to eq root_path
+    end
   end
 end

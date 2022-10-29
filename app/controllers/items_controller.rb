@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[edit update]
+  before_action :user_own?, only: %i[edit update]
 
   # 項目一覧画面
   def index
@@ -28,6 +29,12 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = current_user.items.find(params[:id])
+    @item = Item.find(params[:id])
+  end
+
+  def user_own?
+    unless @item.user == current_user
+      redirect_to root_path, alert: '権限のない操作です。'
+    end
   end
 end

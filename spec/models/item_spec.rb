@@ -25,19 +25,6 @@ RSpec.describe Item, type: :model do
       expect(item.errors[:name]).to include('は15文字以内で入力してください')
     end
   end
-  # 管理できる項目は、最大12個だということ。
-  ### validationがうまく書けられない。
-
-  # let(:user) { FactoryBot.create(:user) }
-
-  skip it 'item count is maximum 12 per user' do
-    12.times do
-      FactoryBot.create(:item, user: user)
-    end
-    thirteenth_item = FactoryBot.build(:item, user: user)
-    thirteenth_item.valid?
-    expect(thirteenth_item).to be_invalid
-  end
 
   # 項目を消した時に、記録も消されること。dependent: : destroyのテスト
   it 'has associated logs that destroyed with the item' do
