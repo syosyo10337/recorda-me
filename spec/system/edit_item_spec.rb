@@ -5,7 +5,7 @@ RSpec.describe 'Items', type: :system, js: true do
 
   let(:user) { FactoryBot.create(:user, :with_items) }
 
-  scenario "user edit a item name" do
+  scenario 'user edit a item name' do
     login_as(user)
 
     click_on '各種設定'
