@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  
 
+  # social機能の足がかりとしてとりあえずの実装
   get '/users', to: 'users#index'
 
   root 'static_pages#home'

@@ -2,7 +2,7 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 
-#サンプルユーザを作成
+# サンプルユーザを作成
 User.create!(name: "正尚",
             email: "masanao@example.com",
             password: "masanao16",
@@ -17,8 +17,7 @@ User.create!(name: "正尚",
   )
 end
 
-
-#ユーザのアイテムを作成
+# ユーザのアイテムを作成
 masa = User.first
 other_users = User.where(id: 2..5)
 languages = [ "Python", "Java", "Ruby", "Go", "PHP", "TypeScript", "Perl", "Rust", "Kotlin", "Flutter", "Swift", "JavaScript"]
@@ -33,8 +32,7 @@ other_users.each do |user|
   end
 end
 
-
-#ユーザのログを作成
+# ユーザのログを作成
 amounts = [15, 30, 60, 120, 180, 45]
 
 masa.items.each do |item|
