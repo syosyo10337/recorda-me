@@ -3,7 +3,7 @@ class Log < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
 
   validates :item_id, presence: true
-  validates :amount, numericality: { less_than_or_equal_to: 120, 
+  validates :amount, numericality: { less_than_or_equal_to: 180, 
   greater_than: 0
   }
 end

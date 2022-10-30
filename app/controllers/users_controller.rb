@@ -7,6 +7,6 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @logs = @user.logs.take(5)
+    @logs = @user.logs.order(created_at: :desc).page(params[:page])
   end
 end

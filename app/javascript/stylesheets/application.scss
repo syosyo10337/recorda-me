@@ -1,1 +1,13 @@
+$pagination-active-bg: #6c757db8;
 @import "~bootstrap/scss/bootstrap.scss";
+
+//bootstrap調整
+body {
+  letter-spacing: -0.01em;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ 
+}
+
+.btn {
+  --bs-btn-border-radius: 0.2rem;
+}

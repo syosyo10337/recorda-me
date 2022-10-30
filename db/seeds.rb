@@ -33,18 +33,20 @@ other_users.each do |user|
 end
 
 # ユーザのログを作成
-amounts = [15, 30, 60, 120, 180, 45]
+AMOUNTS = [15, 30, 60, 120, 180, 45]
 
 masa.items.each do |item|
-  10.times do
-    item.logs.create!(amount: amounts.sample)
+  4.times do |i|
+    item.logs.create!(amount: AMOUNTS.sample,
+                        created_at: i.days.ago)
+
   end
 end
 
 other_users.each do |user|
   12.times do |i|
     rand(1..3).times do
-      user.items[(i)].logs.create(amount: amounts.sample)
+      user.items[(i)].logs.create(amount: AMOUNTS.sample)
     end
   end
 end
