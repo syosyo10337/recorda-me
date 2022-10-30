@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :items, only: %i[index edit update]
+  resources :logs, only: %i[create destroy]
   get '/about', to: 'static_pages#about'
 
   authenticated :user do

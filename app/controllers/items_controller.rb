@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
     if @item.update(items_params)
       redirect_to items_path, notice: '名前を更新しました。'
     else
+      # 更新失敗時に、DB上の名前を取得する
       @item.reload
       render :edit, status: :unprocessable_entity
     end
