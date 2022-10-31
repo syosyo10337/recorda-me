@@ -1,14 +1,14 @@
 <div class="card mb-2">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item text-start w-25 border bg-info">
+    <li class="list-group-item text-start w-25 border bg-secondary">
       <%= log.item.name %>
     </li>
     <li class="list-group-item">
       <%= log.amount %> min
-    </li>
-    
   </ul>
+    </li>
   <div class="card-footer text-end">
     <%= (log.created_at).strftime("%m月%e日 （%H:%M） ") %>
+      <%= link_to "削除", log, method: :delete, class: "text-end", id: "delete-log-#{log.id}",  data: { confirm: '本当に削除しますか？' }  %>
   </div>
 </div>

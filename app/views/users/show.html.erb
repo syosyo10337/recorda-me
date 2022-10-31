@@ -20,7 +20,7 @@
     <h3 class="text-start pb-1 mb-3 border-bottom border-2">直近の記録</h3>
     <div class="deck">
       <%= render @feed_logs %>  
-      <%= paginate @feed_logs %>
+      <%= paginate @feed_logs, params: {controller: 'users', action: 'show' } %>
     </div>
   </div>
 </div>
