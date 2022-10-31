@@ -6,7 +6,7 @@ class LogsController < ApplicationController
     else
       @user = current_user
       @feed_logs = @user.logs.page(params[:page])
-      flash[:alert] = '1回の記録は0 ~ 180分にしてください'
+      flash.now[:alert] = '1回の記録は0 ~ 180分にしてください'
       render 'users/show', status: :unprocessable_entity
     end
   end

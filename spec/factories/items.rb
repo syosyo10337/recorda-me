@@ -5,4 +5,3 @@ FactoryBot.define do
     item_num { nil }
   end
 end
-
