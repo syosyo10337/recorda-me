@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[edit update]
-  before_action :user_own?, only: %i[edit update]
+  before_action :item_owner?, only: %i[edit update]
 
   # 項目一覧画面
   def index
@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
     if @item.update(items_params)
       redirect_to items_path, notice: '名前を更新しました。'
     else
+      # 更新失敗時に、DB上の名前を取得する
       @item.reload
       render :edit, status: :unprocessable_entity
     end
@@ -32,7 +33,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def user_own?
+  def item_owner?
     unless @item.user == current_user
       redirect_to root_path, alert: '権限のない操作です。'
     end

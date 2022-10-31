@@ -5,10 +5,10 @@ RSpec.describe Log, type: :model do
   let(:item) { FactoryBot.create(:item, user: user) }
 
   # amountが1回の記録で120minが上限であること/最小でも1min
-  it 'is invalid with greater than 120' do
-    log = FactoryBot.build(:log, item: item, amount: 121)
+  it 'is invalid with greater than 180' do
+    log = FactoryBot.build(:log, item: item, amount: 181)
     log.valid?
-    expect(log.errors[:amount]).to include('は120以下の値にしてください')
+    expect(log.errors[:amount]).to include('は180以下の値にしてください')
   end
 
   it 'is invalid with 0 amount' do

@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :items, only: %i[index edit update]
+  resources :logs, only: %i[create destroy]
   get '/about', to: 'static_pages#about'
 
   authenticated :user do
@@ -11,8 +12,8 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  
 
+  # social機能の足がかりとしてとりあえずの実装
   get '/users', to: 'users#index'
 
   root 'static_pages#home'

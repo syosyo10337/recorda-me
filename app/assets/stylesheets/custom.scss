@@ -1,23 +1,5 @@
-//bootstrap調整
-body {
-  letter-spacing: -0.01em;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
- 
-}
-.btn {
+// bootstarpのカスタムは、
+// app/javascript/stylesheets/application.scssに書く。
 
-  border-radius: .1;
-  
-  }
+// その他CSSスタイルはasset/stylesheets/の対応するページに書くこと
 
-//error-messages
-.field_with_errors {
-  display: inline;
-  .text-secondary {
-    color: #842029 !important;
-  }
-  .form-control {
-  border-color: #842029;
-  }
-}
-  
