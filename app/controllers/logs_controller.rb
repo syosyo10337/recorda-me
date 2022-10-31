@@ -33,7 +33,7 @@ class LogsController < ApplicationController
 
   def log_owner?
     unless current_user == Log.find(params[:id]).user
-      redirect_to root_path, alert: '権限の内容操作です。'
+      redirect_to root_path, alert: '権限のない操作です。'
     end
 
   end
