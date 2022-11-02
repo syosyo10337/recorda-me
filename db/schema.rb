@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2022_10_25_063805) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "items", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.integer "item_num"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2022_10_25_063805) do
 
   create_table "logs", force: :cascade do |t|
     t.integer "amount"
-    t.integer "item_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_logs_on_item_id"

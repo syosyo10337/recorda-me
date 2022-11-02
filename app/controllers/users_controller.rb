@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :get_items_includes_logs, only: %i[show]
 
   # 仮で実装しました。
   def index
@@ -6,9 +7,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @feed_logs = @user.logs.page(params[:page])
-
-    @log = @user.logs.build
+    @feed_logs = current_user.logs.order_desc.page(params[:page])
+    @log = current_user.logs.build
+    
   end
+
+
+  private
+  
+  def get_items_includes_logs
+    @items = current_user.items.includes(:logs)
+  end
+
 end

@@ -1,0 +1,33 @@
+<div class="stats">
+  <h6>いままでの累計</h6>
+  <a href="#">
+    <strong class="stat">
+      <%= @logs.sum('amount / 60') %>
+    </strong>
+    時間
+  </a>
+  <h6>
+    <%= @user.logs.where('logs.created_at >= ?', 7.days.ago).sum('logs.amount / 60') %>
+    <%= @user.logs.where('logs.created_at >= ?', 1.month.ago).sum('logs.amount / 60') %>
+  </h6>
+    
+</div>
+
+
+<%= column_chart  @items.map { |item|
+  { name: item.name,
+    data: item.logs.group_by_month('logs.created_at', format: 
+    '%m月').sum('logs.amount / 60') }
+  }, stacked: true, suffix: "時間", legend: 'hide',  dataset: {borderWidth: 1} %>
+
+<%= pie_chart  @items.group(:name).sum('logs.amount /60'),  suffix: "時間" %>
+
+<!-- 試作品>
+
+<%= line_chart @items[0].logs.group_by_week('logs.created_at').sum('logs.amount / 60')  %>
+<%= line_chart @items[1].logs.group_by_month('logs.created_at').sum('logs.amount / 60'), colors: %w[#F39800] %>
+<%= line_chart @items[2].logs.group_by_month('logs.created_at').sum('logs.amount / 60')%>
+<%= line_chart @items[3].logs.group_by_month('logs.created_at').sum('logs.amount / 60')%>
+<%= line_chart @items[4].logs.group_by_month('logs.created_at').sum('logs.amount / 60')%>
+<%= line_chart @items[5].logs.group_by_month('logs.created_at').sum('logs.amount / 60')%>
+

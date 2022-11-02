@@ -7,7 +7,8 @@ class LogsController < ApplicationController
       redirect_to authenticated_root_path, notice: '記録を保存しました。'
     else
       @user = current_user
-      @feed_logs = @user.logs.page(params[:page])
+      @feed_logs = @user.logs.order_desc.page(params[:page])
+      @items = current_user.items.includes(:logs)
       flash.now[:alert] = '1回の記録は0 ~ 180分にしてください'
       render 'users/show', status: :unprocessable_entity
     end

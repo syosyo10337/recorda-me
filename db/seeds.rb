@@ -3,24 +3,24 @@
 #
 
 # サンプルユーザを作成
-User.create!(name: "正尚",
-            email: "masanao@example.com",
-            password: "masanao16",
-            password_confirmation: "masanao16",
+User.create!(name: '正尚',
+            email: 'masanao@example.com',
+            password: 'masanao16',
+            password_confirmation: 'masanao16',
 )
 
 4.times do |i|
   User.create(name: "サンプルユーザ#{i + 1}",
               email: "sample#{i + 1}@example.com",
-              password: "password",
-              password_confirmation: "password",
+              password: 'password',
+              password_confirmation: 'password',
   )
 end
 
 # ユーザのアイテムを作成
 masa = User.first
 other_users = User.where(id: 2..5)
-languages = [ "Python", "Java", "Ruby", "Go", "PHP", "TypeScript", "Perl", "Rust", "Kotlin", "Flutter", "Swift", "JavaScript"]
+languages = %w[Python Java Ruby Go PHP TypeScript Perl Rust Kotlin Flutter Swift JavaScript]
 
 12.times do |i|
   masa.items.create(name: languages[(i)])
@@ -33,13 +33,11 @@ other_users.each do |user|
 end
 
 # ユーザのログを作成
-AMOUNTS = [15, 30, 60, 120, 180, 45]
+AMOUNTS = [15, 30, 60, 120, 45]
 
 masa.items.each do |item|
-  4.times do |i|
-    item.logs.create!(amount: AMOUNTS.sample,
-                        created_at: i.days.ago)
-
+  40.times do |i|
+    item.logs.create!(amount: AMOUNTS.sample, created_at: (i + 1).days.ago)
   end
 end
 
