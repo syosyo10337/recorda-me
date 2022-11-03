@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
 
-
   protected
 
   # sign-up時にname属性の値を許可した。
@@ -15,7 +14,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_items_includes_logs
-    @items = current_user.items.includes(:logs)
+    @items = current_user.items.get_fixed_order.includes(:logs)
   end
 
   def set_feed_logs
