@@ -1,10 +1,11 @@
 <div class="col-md-3">
-  <div class="card my-1">
-    
+  <div class="card my-1 item-bg-<%= item_num(item) %>">
     <div class="card-body">
-      <h5 class="card-title" id="item-<%= item.id %>"><%= item.name %></h5>
+      <h5 class="card-title" id="item-<%= item_num(item) %>"><%= item.name %></h5>
       <%= link_to "編集する", edit_item_path(item), class: "btn btn-secondary btn-sm",
-      id: "edit-item-#{item.id}" %>
+      id: "edit-item-#{item_num(item)}" %>
+      <%= %>
     </div>
   </div>
 </div>
+
