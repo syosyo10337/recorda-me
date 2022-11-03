@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   # 項目一覧画面
   def index
-    @items = current_user.items
+    @items = current_user.items.order(:id)
   end
 
   # 項目名編集画面
