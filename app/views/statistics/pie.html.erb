@@ -1,0 +1,35 @@
+<%= render 'stats_header' %>
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <%=  link_to "比率を見る", stats_line_path, class: "nav-link " %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "遷移を見る",stats_pie_path, class: "nav-link active" %>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <%= pie_chart  @items.group(:name).sum('logs.amount /60'),  suffix: "時間" %>
+  </div>
+</div>
+
+
+
+
+
+
+ 
+
+
+<!-- 試作品>
+
+<%= line_chart @items[0].logs.group_by_week('logs.created_at').sum('logs.amount / 60')  %>
+<%= line_chart @items[1].logs.group_by_month('logs.created_at').sum('logs.amount / 60'), colors: %w[#F39800] %>
+<%= line_chart @items[2].logs.group_by_month('logs.created_at').sum('logs.amount / 60')%>
+<%= line_chart @items[3].logs.group_by_month('logs.created_at').sum('logs.amount / 60')%>
+<%= line_chart @items[4].logs.group_by_month('logs.created_at').sum('logs.amount / 60')%>
+<%= line_chart @items[5].logs.group_by_month('logs.created_at').sum('logs.amount / 60')%>
+
+colors: %w[#D896AD #ECA2A3 #F1B996 #F6D699 #E3DE9A #A6D29A #93C7B7 #92BFC7 #90B0CA #8FACD0 #B5A4C7 #C59DBB]

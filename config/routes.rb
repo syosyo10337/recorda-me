@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/stats', to: 'statistics#index'
+  get '/stats/pie', to: "statistics#pie"
+  get '/stats/line', to: "statistics#line"
+
+
+
   resources :items, only: %i[index edit update]
   resources :logs, only: %i[create destroy]
   get '/about', to: 'static_pages#about'
