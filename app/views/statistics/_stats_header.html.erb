@@ -6,7 +6,7 @@
       <h5 class="card-title">いままでの累計記録時間</h5>
       <p class="card-text">
         <strong>
-          <%= @logs.sum('amount / 60') %>
+          <%= @items.sum('logs.amount / 60') %>
         </strong>
         時間
       </p>
@@ -17,7 +17,7 @@
       <h5 class="card-title">今月の記録時間</h5>
       <p class="card-text">
         <strong>
-          <%= @logs.where('logs.created_at > ?', Time.zone.now.beginning_of_month
+          <%= @items.where('logs.created_at > ?', Time.zone.now.beginning_of_month
 ).sum('amount / 60') %>
         </strong>
         時間
@@ -28,7 +28,7 @@
       <h5 class="card-title">今週の記録時間</h5>
       <p class="card-text">
         <strong>
-          <%= @logs.where('logs.created_at > ?', Time.zone.now.beginning_of_week
+          <%= @items.where('logs.created_at > ?', Time.zone.now.beginning_of_week
 ).sum('amount / 60')%>
         </strong>
           時間

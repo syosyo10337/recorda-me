@@ -3,10 +3,10 @@
   <div class="card-header">
     <ul class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <%=  link_to "比率を見る", stats_line_path, class: "nav-link active" %>
+        <%=  link_to "比率を見る", stats_pie_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "遷移を見る",stats_pie_path, class: "nav-link" %>
+        <%= link_to "遷移を見る",stats_line_path, class: "nav-link  active" %>
       </li>
     </ul>
   </div>
@@ -15,6 +15,6 @@
   { name: item.name,
     data: item.logs.group_by_month('logs.created_at', format: 
     '%m月').sum('logs.amount / 60') }
-  }, stacked: true, suffix: "時間", legend: 'hide',  dataset: {borderWidth: 1} %>
+  }, stacked: true, suffix: "時間", curve: false%>
   </div>
 </div>

@@ -1,17 +1,10 @@
 class StatisticsController < ApplicationController
-
-  #グラフの出し分けだけなら、まとめられそう。
+before_action :set_items_includes_logs, only: %i[pie line]
+  #Ajax出来そう。
   def pie
-    @items = current_user.items.includes(:logs)
-    @user = current_user
-    @logs = current_user.logs
   end
 
   def line
-    @items = current_user.items.includes(:logs)
-    @user = current_user
-    @logs = current_user.logs
-
   end
 
 end
