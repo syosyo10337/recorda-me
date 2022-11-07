@@ -1,7 +1,7 @@
 <div class="card mb-2">
   <ul class="list-group list-group-flush">
     <li class="list-group-item text-start w-25 border item-bg-<%= item_num(log.item)%>">
-      <%= log.item.name %>
+      <%= link_to log.item.name, item_path(log.item), class:"text-dark" %>
     </li>
     <li class="list-group-item">
       <%= log.amount %> min

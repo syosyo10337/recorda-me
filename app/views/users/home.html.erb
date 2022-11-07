@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col-md-4">
-    <%= render 'users/log_form' %>
+    <h4 class="mb-4 border-bottom border-2 p-2 text-start"><%= current_user.name %>さんのページ </h4>
+    <%= render 'shared/log_form' %>
   </div>
   <div class="col-md-8">
     <%= render 'users/dash_board' %>

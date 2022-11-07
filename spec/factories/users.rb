@@ -8,6 +8,4 @@ FactoryBot.define do
       after(:create) { |user| create_list(:item, 12, user: user) }
     end
   end
-
-
 end
