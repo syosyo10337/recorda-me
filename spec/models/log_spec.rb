@@ -19,10 +19,10 @@ RSpec.describe Log, type: :model do
 
   # ログが時系列順にdescであること。
   let!(:log) { FactoryBot.create(:log) }
-  let!(:log) { FactoryBot.create(:log, :created_yesterday) }
-  let!(:log) { FactoryBot.create(:log, :created_two_days_ago) }
+  let!(:log_yesterday) { FactoryBot.create(:log, :created_yesterday) }
+  let!(:log_two_days_ago) { FactoryBot.create(:log, :created_two_days_ago) }
   it 'comes recently created first' do
-    expect(log).to eq Log.first
+    expect(log).to eq Log.order_desc.first
   end
   # itemsIDがあること。
   it 'is invalid without item_id' do

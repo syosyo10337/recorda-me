@@ -1,0 +1,38 @@
+<div class="stats row justify-content-center mb-3">
+  <h3 class="text-start pb-1 my-2 border-bottom border-2">これまでの記録</h3>
+  
+  <div class="card m-1" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">いままでの累計記録時間</h5>
+      <p class="card-text">
+        <strong>
+          <%= @items.sum('logs.amount / 60') %>
+        </strong>
+        時間
+      </p>
+    </div>
+  </div>
+  <div class="card m-1" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">今月の記録時間</h5>
+      <p class="card-text">
+        <strong>
+          <%= @items.where('logs.created_at > ?', Time.zone.now.beginning_of_month
+).sum('amount / 60') %>
+        </strong>
+        時間
+    </div>
+  </div>
+  <div class="card m-1" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">今週の記録時間</h5>
+      <p class="card-text">
+        <strong>
+          <%= @items.where('logs.created_at > ?', Time.zone.now.beginning_of_week
+).sum('amount / 60')%>
+        </strong>
+          時間
+      </p>
+    </div>
+  </div>
+</div>

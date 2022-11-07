@@ -1,6 +1,11 @@
 <%# ログインしているnavbar_items_partial %>
+
 <li class="nav-item">
-  <%= link_to "他のユーザをのぞく", "/users", class: "nav-link" %>
+  <%= link_to "統計", stats_pie_path, class: "nav-link" %>
+  </li>
+<li class="nav-item">
+  <%# ソーシャル機能のあしがかり%>
+  <%# link_to "他のユーザをのぞく", "/users", class: "nav-link" %>
   </li>
 <li class="nav-item dropdown">
   <a class="dropdown-toggle nav-link" href="#"
@@ -9,11 +14,11 @@
   </a>
   <ul class="dropdown-menu dropdown-menu-end bg-secondary" aria-labelledby="dropdownMenuButton1">
     <li>
-      <%= link_to "活動項目", items_path, class: "dropdown-item text-end" %>
+      <%= link_to "活動項目", items_path, class: "dropdown-item text-end text-black" %>
     </li>
     <li><hr class="dropdown-divider"></li>
     <li>
-      <%= link_to "ユーザ情報", edit_user_registration_path, class: "dropdown-item text-end" %>
+      <%= link_to "ユーザ情報", edit_user_registration_path, class: "dropdown-item text-end text-black"  %>
     </li>
   </ul>
 </li>

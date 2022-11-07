@@ -1,10 +1,24 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[edit update]
-  before_action :item_owner?, only: %i[edit update]
+  ###
+
+  # @itemに代入
+  before_action :set_item, only: %i[show edit update]
+  before_action :item_owner?, only: %i[show edit update]
+  before_action :set_feed_logs, only: %i[show]
+  # @itemsに代入
+  before_action :set_items_includes_logs, only: %i[show]
+
 
   # 項目一覧画面
   def index
-    @items = current_user.items
+    @items = current_user.items.get_fixed_order
+  end
+
+  # 項目にまつわる記録を表示
+  def show
+    @feed_logs = @feed_logs.where(item_id: @item.id)
+    # log_formのため
+    @log = current_user.logs.build
   end
 
   # 項目名編集画面

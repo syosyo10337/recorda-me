@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Logs", type: :system, js:true do
+RSpec.describe "Logs", type: :system, js: true do
   include LoginSupport
 
   let!(:user) { FactoryBot.create(:user) }
@@ -58,7 +58,8 @@ RSpec.describe "Logs", type: :system, js:true do
       click_on '記録する'
 
       expect {
-        click_on 'delete-log-1'
+        log_id = user.logs.first.id
+        click_on "delete-log-#{log_id}"
         page.accept_confirm
 
         expect(page).to have_content '記録を削除しました。'

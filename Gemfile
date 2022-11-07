@@ -5,7 +5,7 @@ ruby '3.0.4'
 
 
 gem 'rails', '~> 6.1.5'
-gem 'sqlite3', '~> 1.4'
+gem 'pg'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -26,6 +26,10 @@ gem 'rails-i18n', '~> 7.0', '>= 7.0.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'kaminari'
+gem 'chartkick', '~> 4.2', '>= 4.2.1'
+gem 'groupdate'
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

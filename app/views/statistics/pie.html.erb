@@ -1,0 +1,18 @@
+<%= render 'stats_header' %>
+<div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <%=  link_to "比率を見る", stats_pie_path, class: "nav-link active" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "遷移を見る",stats_line_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <%= pie_chart  @items.order(:id).map { |item|
+    [item.name, item.logs.sum('amount / 60')]
+   }, suffix: "時間" %>
+  </div>
+</div>

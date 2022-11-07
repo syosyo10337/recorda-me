@@ -3,27 +3,27 @@
 #
 
 # サンプルユーザを作成
-User.create!(name: "正尚",
-            email: "masanao@example.com",
-            password: "masanao16",
-            password_confirmation: "masanao16",
+User.create!(name: 'ゲストユーザ',
+            email: 'guest@example.com',
+            password: 'guestpass',
+            password_confirmation: 'guestpass',
 )
 
 4.times do |i|
   User.create(name: "サンプルユーザ#{i + 1}",
               email: "sample#{i + 1}@example.com",
-              password: "password",
-              password_confirmation: "password",
+              password: 'password',
+              password_confirmation: 'password',
   )
 end
 
 # ユーザのアイテムを作成
-masa = User.first
+guest = User.first
 other_users = User.where(id: 2..5)
-languages = [ "Python", "Java", "Ruby", "Go", "PHP", "TypeScript", "Perl", "Rust", "Kotlin", "Flutter", "Swift", "JavaScript"]
+LANGUAGES = %w[Python Java Ruby Go PHP TypeScript Perl Rust Kotlin Flutter Swift JavaScript]
 
 12.times do |i|
-  masa.items.create(name: languages[(i)])
+  guest.items.create(name: LANGUAGES[(i)])
 end
 
 other_users.each do |user|
@@ -33,13 +33,11 @@ other_users.each do |user|
 end
 
 # ユーザのログを作成
-AMOUNTS = [15, 30, 60, 120, 180, 45]
+AMOUNTS = [15, 30, 60, 120, 45]
 
-masa.items.each do |item|
-  4.times do |i|
-    item.logs.create!(amount: AMOUNTS.sample,
-                        created_at: i.days.ago)
-
+guest.items.each do |item|
+  40.times do |i|
+    item.logs.create!(amount: AMOUNTS.sample, created_at: (i + 1).days.ago)
   end
 end
 
@@ -49,4 +47,17 @@ other_users.each do |user|
       user.items[(i)].logs.create(amount: AMOUNTS.sample)
     end
   end
+end
+
+#自身のデータを残していきます。
+masa = User.create!(
+  name: '正尚',
+  email: 'masanao@example.com',
+  password: 'masanao16',
+  password_confirmation: 'masanao16',
+)
+
+MYITEMS = %w[FE/CS HTML/CSS Linux Ruby JavaScript SQL/DB Rails Git/Github AWS/Docker Network PortFolio 項目12]
+12.times do |i|
+  masa.items.create!(name: MYITEMS[(i)])
 end

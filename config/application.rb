@@ -11,9 +11,8 @@ module RecordaMe
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
     config.i18n.default_locale = :ja
-    config.time_zone = "Tokyo"
+    config.time_zone = 'Tokyo'
 
-    
     config.generators do |g|
       g.test_framework :rspec,
         view_specs: false,
@@ -22,6 +21,7 @@ module RecordaMe
         request_specs: false
     end
   
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
