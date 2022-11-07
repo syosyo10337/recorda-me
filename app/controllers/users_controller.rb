@@ -9,6 +9,5 @@ class UsersController < ApplicationController
 
   def home
     @log = current_user.logs.build
-    @test_logs = current_user.logs.includes(:item)
   end
 end
