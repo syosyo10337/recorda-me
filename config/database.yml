@@ -26,6 +26,7 @@ test:
 
 production:
   <<: *default
-  # database: recorda_me_production
-  # username: recorda_me
-  password: <%= ENV['recorda_me_DATABASE_PASSWORD'] %>
+  database: recorda_me_production
+  username: <%= Rails.application.credentials.db[:user_name] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:endpoint] %>
