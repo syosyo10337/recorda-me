@@ -1,3 +1,32 @@
+//header
+#navbarNav {
+  justify-content: end;
+  .nav-link {
+    color: black;
+  }
+}
+//debug_info
+.debug_dump {
+  width: 100%;
+  padding: 5px;
+  margin-top: 50px;
+  border: 3px solid grey;
+  border-radius: 20px;
+  background-color: azure;
+  text-align: start;
+}
+
+//error-messages
+.field_with_errors {
+  display: inline;
+  .text-secondary {
+    color: #842029 !important;
+  }
+  .form-control {
+  border-color: #842029;
+  }
+}
+
 $pagination-active-bg: #6c757db8;
 @import "~bootstrap/scss/bootstrap.scss";
 
