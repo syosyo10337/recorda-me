@@ -13,8 +13,8 @@
   <div class="card-body">
     <%= line_chart  @items.map { |item|
   { name: item.name,
-    data: item.logs.group_by_month('logs.created_at', format: 
-    '%m月').sum('logs.amount / 60') }
+    data: item.logs.group_by_month('logs.created_at',  last: 3,
+    format: '%m月').sum('logs.amount / 60') }
   }, stacked: true, suffix: "時間", curve: false%>
   </div>
 </div>
