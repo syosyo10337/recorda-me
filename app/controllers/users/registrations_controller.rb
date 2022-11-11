@@ -82,8 +82,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # ユーザにつき、デフォルトのアイテムを12個作成する
   def generate_default_items_for(user)
-    12.times do |i|
-      user.items.create(name: "項目#{i + 1}")
-    end
+    user.set_twelve_items
   end
 end
