@@ -5,9 +5,9 @@
     <%= form_with(model: @log) do |form| %>
       <%= form.number_field :amount, in: 15..180, step: 15, class:"form-control d-inline w-50"%>
       <span class="ps-2">min</span>
-      <div class="row justify-content-end pe-2">
-        <%= form.collection_select :item_id, @items, :id, :name, {} ,class: "form-select mt-3 w-50" %>
-        <%= link_to "項目名を編集する" , items_path, class: "text-end", style: "width: 180px;"%>
+      <div class="pe-2">
+        <%= form.collection_select :item_id, @items, :id, :name, {} ,class: "form-select mt-3 w-50 ms-auto" %>
+        <%= link_to "項目名を編集する" , items_path, class: "text-end d-block ms-auto", style: "width: 180px;"%>
       </div>
       <%= form.submit "記録する", class: "btn btn-secondary mt-3" %>
     <% end %>
