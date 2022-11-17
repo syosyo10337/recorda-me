@@ -28,7 +28,7 @@ Password: guestpass
   - 記録項目別
   - 項目別の比率
   - 週間累計時間表示
-<br />
+
 - ユーザ登録機能 *(devise gem)*
 - ページネーション機能 *(kaminari gem)*
 
@@ -38,13 +38,13 @@ Password: guestpass
 ## インフラ構成図
 - アプリケーションサーバ *puma*
 - リバースプロキシ *nginx*
-- RDS for postgresql
+- RDS for postgresqlデータベース
 - Route 53 - DNSサーバ/ドメイン取得
 - ALB for SSL処理/負荷分散
 
 <img src="https://user-images.githubusercontent.com/110030968/201706923-890fcfea-0d89-4df4-8d1c-c6a5e0e8486c.png" style="width: 90%;">
 
-#### 作成動機
+### 作成動機
 
 私自身、何か物事に取り組む時にただ闇雲に始めると、いつの間にかどうでも良くなってしまう節があったので、シンプルなインターフェイスで時間を記録をし、それを可視化できるようにするために作成しました。
 記録するのが楽しくなるように、活動の項目を12色から好きな色で塗れるようにし、一目でどの色(活動)がどれくらいか見られるように工夫しました。
