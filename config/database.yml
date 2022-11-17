@@ -9,9 +9,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
   encoding: unicode
-  username: recorda_me
-  password:
-  host: localhost
+  username: postgres
+  password: postgres
+  host: postgres_db
 
 development:
   <<: *default

@@ -1,0 +1,41 @@
+version: '3'
+services:
+  # postgresql
+  postgres_db:
+    image: postgres:14
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+  # Rails
+  rails:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    volumes:
+     - .:/recorda-me
+     - node_modules:/recorda-me/node_modules
+     - bundle:/usr/local/bundle
+    stdin_open: true
+    tty: true
+    command: rails s -e development -b '0.0.0.0'
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres_db
+      - chrome
+
+  chrome:
+    image: selenium/standalone-chrome:latest
+    ports:
+      - 4444:4444
+    logging:
+      driver: none
+      
+volumes:
+  node_modules:
+  db-data:
+  bundle:
