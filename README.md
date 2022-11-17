@@ -1,31 +1,57 @@
 # 記録アプリ Recorda me
-  
 
 ---
 ## 概要
-  
-  
-自身の就職活動用に作成したアプリケーションです。
 
-勉強、スポーツや音楽の練習/活動などをスケジュールを立てて進めたたほうが建設的だとわかっているけど、
-計画を立てたり、進捗確認、モチベーション維持が難しいと思う人に向けて作ったサービスです。
+このアプリは、日々の活動を15分単位で記録して、可視化できるアプリです。
+勉強時間やの運動から、Youtubeでダラダラしちゃった時間まで家計簿感覚で記録できます。
 
-自分の活動を記録し、目に見える形で、学習量や他の活動とのバランスが見えるようにすることで、自分の活動を家計簿のように管理することを可能にします。
+<a href="https://www.recorda-me.link">https://www.recorda-me.link</a>
 
----
-## 実装予定の機能
-
-- 記録を保存する機能
-- 記録を表示する機能
-  - 項目別に総量を表示できる機能
-  - 一定期間における項目同士の活動量を対比的に表示する
-- ユーザ登録機能
-- 他の人の活動を閲覧する機能
-- 他人の活動をBookmarkする機能
-
+GUESTでのログイン
+```
+ID: guest@example.com
+Password: guestpass
+```
 
 ---
 
-### 動機
+## 実装した機能、技術
+<div style="padding-bottom: 5px">
+<img src="https://img.shields.io/badge/Ruby-3.0.4-red?style=plastic&logo=ruby">
+<img src="https://img.shields.io/badge/Rails-6.1.7-critical?style=plastic&logo=rubyonrails">
+<img src="https://img.shields.io/badge/Docker-20.10.21-blue?style=plastic&logo=docker">
+<img src="https://img.shields.io/badge/Bootstrap-5.2.1-blueviolet?style=plastic&logo=bootstrap">
+</div>
 
-自分自身物事に取り組む時に、ただ闇雲にするといつの間にかどうでも良くなったりしてしまう節があったので、最近巷にある高機能すぎる記録アプリとは趣向を変え、少ない労力で記録をし、最大の効果、ここでいうモチベーションの向上や、進捗確認に活かせるようなものが欲しいと思った
+- 記録を15分単位で保存する機能
+- 直近のログ表示機能
+- グラフによる記録の可視化機能
+*(chartkick gem && groupdate gem)*
+  - 記録項目別
+  - 項目別の比率
+  - 週間累計時間表示
+<br>
+- ユーザ登録機能 *(devise gem)*
+- ページネーション機能 *(kaminari gem)*
+
+- 開発環境 *(docker)*
+- CSSフレームワーク *(Bootstrap5)*
+
+---
+## インフラ構成図
+- アプリケーションサーバ *puma*
+- リバースプロキシ *nginx*
+- RDS for postgresql
+- Route 53 - DNSサーバ/ドメイン取得
+- ALB for SSL処理/負荷分散
+
+<img src="https://user-images.githubusercontent.com/110030968/201706923-890fcfea-0d89-4df4-8d1c-c6a5e0e8486c.png" style="width: 90%;">
+
+---
+
+
+#### 動機
+
+私自身、何か物事に取り組む時にただ闇雲に始めると、いつの間にかどうでも良くなってしまう節があったので、シンプルなインターフェイスで時間を記録をし、それを可視化できるようにするために作成しました。
+記録するのが楽しくなるように、活動の項目を12色から好きな色で塗れるようにし、一目でどの色(活動)がどれくらいか見られるように工夫しました。
