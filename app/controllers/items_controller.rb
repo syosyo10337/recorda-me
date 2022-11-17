@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  ###
 
   # @itemに代入
   before_action :set_item, only: %i[show edit update]
@@ -13,7 +14,7 @@ class ItemsController < ApplicationController
     @items = current_user.items.get_fixed_order
   end
 
-  # 項目にまつわる記録を表示 /item/:id
+  # 項目にまつわる記録を表示
   def show
     @feed_logs = @feed_logs.where(item_id: @item.id)
     # log_formのため

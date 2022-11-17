@@ -3,7 +3,7 @@ module ItemHelper
 
   # itemを引数に取り, userがもつ何個目(1..12)のitemであるかを返す。(1-based index)
   def item_num(item)
-    user_items = current_user.items.get_fixed_order
+    user_items = item.user.items.get_fixed_order
     user_items.pluck(:id).find_index(item.id) + 1
   end
 
