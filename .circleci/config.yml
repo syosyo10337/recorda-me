@@ -21,10 +21,10 @@ jobs:
 
   test:
     docker:
+      - image: cimg/ruby:3.0.4-node
       - image: cimg/postgres:14.4
         environment:
           POSTGRES_PASSWORD: postgres
-      - image: cimg/ruby:3.0.4-node
     environment:
         RAILS_ENV: test
         DATABASE_HOST: 127.0.0.1
