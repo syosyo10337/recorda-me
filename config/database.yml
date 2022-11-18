@@ -23,6 +23,7 @@ development:
 test:
   <<: *default
   database: recorda_me_test
+  host: <%= ENV['DATABASE_HOST'] %>
 
 production:
   <<: *default
