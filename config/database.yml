@@ -28,6 +28,6 @@ test:
 production:
   <<: *default
   database: recorda_me_production
-  username: <%= Rails.application.credentials.db[:user_name] %>
-  password: <%= Rails.application.credentials.db[:password] %>
-  host: <%= Rails.application.credentials.db[:endpoint] %>
+  username: <%= Rails.application.credentials.db[:user_name] if Rails.env.production? %>
+  password: <%= Rails.application.credentials.db[:password] if Rails.env.production? %>
+  host: <%= Rails.application.credentials.db[:endpoint] if Rails.env.production? %>
