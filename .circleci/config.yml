@@ -1,9 +1,8 @@
 version: 2.1
 
 orbs:
-  ruby: circleci/ruby@1.1.2
-  node: circleci/node@2
-
+  ruby: circleci/ruby@2.0.0
+  node: circleci/node@5.0.3
 
 commands:
   setup:
@@ -12,44 +11,40 @@ commands:
       - ruby/install-deps
       - node/install-packages:
           pkg-manager: yarn
-          cache-key: "yarn.lock"
+
 jobs:
   build:
     docker:
-      - image: cimg/ruby:3.0.4-node-browsers
+      - image: cimg/ruby:3.0.4-node
     steps:
       - setup
 
   test:
     docker:
-      - image: circleci/ruby:3.0.3-node-browsers
-      # DBの設定
-      - image: circleci/postgres:11.14
+      - image: cimg/postgres:14.4
         environment:
           POSTGRES_PASSWORD: postgres
           POSTGRES_USER: postgres
           POSTGRES_DB: recorda_me_test
     environment:
-      RAILS_ENV: test
-      DATABASE_HOST: 127.0.0.1
-      BUNDLE_JOBS: "4"
-      BUNDLE_RETRY: "3"
+        RAILS_ENV: test
+        DATABASE_HOST: 127.0.0.1
+        BUNDLE_JOBS: "4"
+        BUNDLE_RETRY: "3"
     steps:
       - setup
       - run:
-          name: Migrating DB
-          command: rails db:migrate
+          name: Wait for DB
+          command: 'dockerize -wait tcp://localhost:5432 -timeout 1m'
       - run:
           name: Database setup
-          command: budle exec rails db:schema:load --trace
-      - run:
-          name: Rspec Test
-          command: bundle exe rspec
-
+          command: 'bundle exec rails db:schema:load --trace'
+      - ruby/rspec-test:
+          include: spec/**/*_spec.rb\
 
 workflows:
   version: 2
-  test:
+  build_and_test:
     jobs:
       - build
       - test:
