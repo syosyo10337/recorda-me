@@ -21,12 +21,10 @@ jobs:
 
   test:
     docker:
-      - image: cimg/ruby:3.0.4-node
       - image: cimg/postgres:14.4
         environment:
           POSTGRES_PASSWORD: postgres
-          POSTGRES_USER: postgres
-          POSTGRES_DB: recorda_me_test
+      - image: cimg/ruby:3.0.4-node
     environment:
         RAILS_ENV: test
         DATABASE_HOST: 127.0.0.1
@@ -39,12 +37,11 @@ jobs:
           command: 'dockerize -wait tcp://localhost:5432 -timeout 1m'
       - run:
           name: Database setup
-          command: 'bundle exec rails db:schema:load --trace'
+          command: bundle exec rails db:create && budle exec rails db:migrate
       - ruby/rspec-test:
           include: spec/**/*_spec.rb\
 
 workflows:
-  version: 2
   build_and_test:
     jobs:
       - build
