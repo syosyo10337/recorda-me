@@ -16,7 +16,7 @@ commands:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:3.0.4-node-browsers
+      - image: cimg/ruby:3.0.4-node-browsers
     steps:
       - setup
 
