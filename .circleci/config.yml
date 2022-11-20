@@ -39,7 +39,7 @@ jobs:
           name: Database setup
           command: bundle exec rails db:create && bundle exec rails db:migrate
       - ruby/rspec-test:
-          include: spec/**/*_spec.rb\
+          include: spec/**/*_spec.rb
 
 workflows:
   build_and_test:
