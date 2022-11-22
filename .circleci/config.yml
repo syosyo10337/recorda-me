@@ -1,0 +1,55 @@
+version: 2.1
+
+orbs:
+  ruby: circleci/ruby@2.0.0
+  node: circleci/node@5.0.3
+  browser-tools: circleci/browser-tools@1.4.0
+
+commands:
+  setup:
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:3.0.4-browsers
+    steps:
+      - setup
+
+  test:
+    docker:
+      - image: cimg/ruby:3.0.4-browsers
+      - image: cimg/postgres:14.4
+        environment:
+          POSTGRES_PASSWORD: postgres
+        name: postgres_db
+    environment:
+        RAILS_ENV: test
+        DATABASE_HOST: postgres_db
+        BUNDLE_JOBS: "4"
+        BUNDLE_RETRY: "3"
+        CIRCLECI: circleci
+    steps:
+      - setup
+      - run:
+          name: Wait for DB
+          command: 'dockerize -wait tcp://postgres_db:5432 -timeout 1m'
+      - run:
+          name: Database setup
+          command: bundle exec rails db:create && bundle exec rails db:migrate
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - ruby/rspec-test:
+          include: spec/**/*_spec.rb
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build

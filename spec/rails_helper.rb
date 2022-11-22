@@ -67,7 +67,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include ShowMeTheCookies, type: :system
 
-  # Use Devise helpers in tests
+  ## Use Devise helpers in tests
+  config.include Devise::Test::ControllerHelpers, type: :helper
   config.include Devise::Test::IntegrationHelpers, type: :system
-
 end
