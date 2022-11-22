@@ -36,7 +36,8 @@ Password: guestpass
 - 開発環境 *(docker)*
 - CSSフレームワーク *(Bootstrap5)*
 - インフラ構築 *(AWS)*
-
+- linter/formatter *(Rubocop)*
+- CI *(Circle CI)*
 
 ## インフラ構成図
 - アプリケーションサーバ *puma*
