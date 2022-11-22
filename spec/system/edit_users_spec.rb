@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'EditUsers', type: :system, js: true do
+RSpec.describe 'EditUsers', js: true, type: :system do
   include LoginSupport
   let(:user) { FactoryBot.create(:user) }
 
@@ -9,7 +9,7 @@ RSpec.describe 'EditUsers', type: :system, js: true do
     visit edit_user_registration_path
   end
 
-  scenario 'a user can edit himself' do
+  it 'a user can edit himself' do
     fill_in 'ユーザ名', with: 'test name'
     fill_in 'user_current_password', with: user.password
     click_on '更新する'
@@ -17,13 +17,13 @@ RSpec.describe 'EditUsers', type: :system, js: true do
     expect(page).to have_content 'アカウント情報を変更しました。'
   end
 
-  scenario 'a user can delte himself' do
-    expect {
+  it 'a user can delte himself' do
+    expect do
       click_on 'アカウントを削除'
 
       page.accept_confirm
 
       expect(page).to have_content 'アカウントを削除しました。'
-    }.to change { User.count }.by(-1)
+    end.to change { User.count }.by(-1)
   end
 end

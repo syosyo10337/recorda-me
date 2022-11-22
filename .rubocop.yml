@@ -1,0 +1,20 @@
+inherit_from: .rubocop_todo.yml
+
+# inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+    NewCops: enable
+    Exclude:
+      - db/**/*.rb
+      - "config/initializers/*"
+      - "vendor/**/*"
+      - "bin/*"
+
+Bundler/OrderedGems:
+  Exclude:
+    - 'Gemfile'

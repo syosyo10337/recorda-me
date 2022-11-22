@@ -5,8 +5,9 @@ RSpec.describe 'SignIns', type: :system do
   before do
     @user = FactoryBot.create(:user)
   end
+
   # 正常にログインし、ログアウトまでできること
-  scenario 'user log-in and log-out successfully' do
+  it 'user log-in and log-out successfully' do
     login_as @user
 
     expect(page).to have_content 'ログインしました。'
@@ -21,7 +22,7 @@ RSpec.describe 'SignIns', type: :system do
   end
 
   # ログインに失敗し、'フラッシュ'が出ること。
-  scenario "user fails to log-in with 'flash' messages" do
+  it "user fails to log-in with 'flash' messages" do
     visit root_path
     # ログインページへ
     find('.btn.btn-outline-secondary').click
@@ -37,11 +38,11 @@ RSpec.describe 'SignIns', type: :system do
 
     visit root_path
 
-    expect(page).to_not have_content 'メールアドレスまたはパスワードが違います。'
+    expect(page).not_to have_content 'メールアドレスまたはパスワードが違います。'
   end
 
   # ログイン前後でヘッダーの表示がわかること
-  scenario 'To change header by logged-in' do
+  it 'To change header by logged-in' do
     login_as @user
 
     expect(page).to have_content '設定'
@@ -53,7 +54,7 @@ RSpec.describe 'SignIns', type: :system do
   end
 
   # Remember_meが有効になること
-  scenario 'Remember_me works successfully' do
+  it 'Remember_me works successfully' do
     visit root_path
     # ログイんページへ
     find('.btn.btn-outline-secondary').click
@@ -66,6 +67,6 @@ RSpec.describe 'SignIns', type: :system do
     end
 
     expect(page).to have_content 'ログインしました。'
-    expect(get_me_the_cookie('remember_user_token')).to_not eq nil
+    expect(get_me_the_cookie('remember_user_token')).not_to be_nil
   end
 end

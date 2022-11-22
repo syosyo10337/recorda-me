@@ -1,12 +1,10 @@
 class ItemsController < ApplicationController
-
   # @itemに代入
   before_action :set_item, only: %i[show edit update]
   before_action :item_owner?, only: %i[show edit update]
   before_action :set_feed_logs, only: %i[show]
   # @itemsに代入
   before_action :set_items_includes_logs, only: %i[show]
-
 
   # 項目一覧画面
   def index
@@ -21,8 +19,7 @@ class ItemsController < ApplicationController
   end
 
   # 項目名編集画面
-  def edit
-  end
+  def edit; end
 
   # 項目名を更新する
   def update
@@ -47,8 +44,8 @@ class ItemsController < ApplicationController
   end
 
   def item_owner?
-    unless @item.user == current_user
-      redirect_to root_path, alert: '権限のない操作です。'
-    end
+    return if @item.user == current_user
+
+    redirect_to root_path, alert: '権限のない操作です。'
   end
 end

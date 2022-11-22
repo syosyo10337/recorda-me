@@ -2,9 +2,18 @@ require 'rails_helper'
 
 RSpec.describe Log, type: :model do
   let(:user) { FactoryBot.create(:user) }
+  # ログが時系列順にdescであること。
+  let!(:log) { FactoryBot.create(:log) }
+  let!(:log_yesterday) { FactoryBot.create(:log, :created_yesterday) }
+  let!(:log_two_days_ago) { FactoryBot.create(:log, :created_two_days_ago) }
   let(:item) { FactoryBot.create(:item, user: user) }
 
   # amountが1回の記録で120minが上限であること/最小でも1min
+  let!(:log_two_days_ago) { FactoryBot.create(:log, :created_two_days_ago) }
+  let!(:log_yesterday) { FactoryBot.create(:log, :created_yesterday) }
+  # ログが時系列順にdescであること。
+  let!(:log) { FactoryBot.create(:log) }
+
   it 'is invalid with greater than 180' do
     log = FactoryBot.build(:log, item: item, amount: 181)
     log.valid?
@@ -17,13 +26,10 @@ RSpec.describe Log, type: :model do
     expect(log.errors[:amount]).to include('は0より大きい値にしてください')
   end
 
-  # ログが時系列順にdescであること。
-  let!(:log) { FactoryBot.create(:log) }
-  let!(:log_yesterday) { FactoryBot.create(:log, :created_yesterday) }
-  let!(:log_two_days_ago) { FactoryBot.create(:log, :created_two_days_ago) }
   it 'comes recently created first' do
     expect(log).to eq Log.order_desc.first
   end
+
   # itemsIDがあること。
   it 'is invalid without item_id' do
     log = FactoryBot.build(:log, item: nil)

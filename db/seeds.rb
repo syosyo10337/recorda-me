@@ -7,14 +7,14 @@ User.create!(name: 'ゲストユーザ',
             email: 'guest@example.com',
             password: 'guestpass',
             password_confirmation: 'guestpass',
-)
+          )
 
 4.times do |i|
   User.create(name: "サンプルユーザ#{i + 1}",
               email: "sample#{i + 1}@example.com",
               password: 'password',
               password_confirmation: 'password',
-  )
+            )
 end
 
 # ユーザのアイテムを作成
