@@ -17,10 +17,12 @@ RSpec.configure do |config|
   config.before(:each, type: :system) do
     driven_by :rack_test
   end
-
+  # ブラウザテストの設定
   config.before(:each, type: :system, js: true) do
+    # CI用のセッティング
     if ENV['CIRCLECI'].present?
       driven_by :selenium_chrome_headless
+    # コンテナ開発環境でのセッティング  
     else
       driven_by :remote_chrome
       Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
