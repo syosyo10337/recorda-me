@@ -32,6 +32,7 @@ jobs:
         DATABASE_HOST: postgres_db
         BUNDLE_JOBS: "4"
         BUNDLE_RETRY: "3"
+        CIRCLECI: circleci
     steps:
       - setup
       - run:

@@ -68,7 +68,6 @@ RSpec.configure do |config|
   config.include ShowMeTheCookies, type: :system
 
   ## Use Devise helpers in tests
-  # helper_specが通ったら追記する
-  # config.include Devise::Test::ControllerHelpers, type: :helper
+  config.include Devise::Test::ControllerHelpers, type: :helper
   config.include Devise::Test::IntegrationHelpers, type: :system
 end
