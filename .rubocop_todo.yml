@@ -146,7 +146,6 @@ Style/Documentation:
 # Configuration parameters: EnforcedStyle.
 # SupportedStyles: always, always_true, never
 
-
 # Offense count: 1
 # This cop supports unsafe autocorrection (--autocorrect-all).
 Style/GlobalStdStream:

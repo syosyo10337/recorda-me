@@ -30,7 +30,7 @@ RSpec.describe 'EditItems', type: :system do
       login_as user
       visit edit_item_path(other_user.items[0])
       expect(page).to have_content '権限のない操作です。'
-      expect(page).to have_current_path root_path, ignore_query: true
+      expect(page).to have_current_path root_path
     end
   end
 end
