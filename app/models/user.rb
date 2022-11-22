@@ -9,7 +9,6 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :logs, through: :items, dependent: :destroy
 
-
   def set_twelve_items
     12.times do |i|
       items.create(name: "項目#{i + 1}")

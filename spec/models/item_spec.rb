@@ -13,12 +13,14 @@ RSpec.describe Item, type: :model do
     item.valid?
     expect(item.errors[:user]).to include('を入力してください')
   end
+
   # item.nameが15文字以下であること。
   describe 'has name' do
     it 'is valid within 15words' do
       item = FactoryBot.build(:item, name: 'テスト' * 5)
       expect(item).to be_valid
     end
+
     it 'is invalid with over 15 words' do
       item = FactoryBot.build(:item, name: 'テストだ' * 4)
       item.valid?

@@ -13,9 +13,10 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors.full_messages).to include('ユーザ名を入力してください')
     end
+
     # 30文字以内に収まること
     it 'is too long when the length is over 30 chars' do
-      user = FactoryBot.build(:user, name: 'あ' * 31 )
+      user = FactoryBot.build(:user, name: 'あ' * 31)
       user.valid?
       expect(user.errors.full_messages).to include('ユーザ名は30文字以内で入力してください')
     end
@@ -28,7 +29,7 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors.full_messages).to include('メールアドレスを入力してください')
     end
-    
+
     # deviseの一意性の確認
     it 'is unique' do
       FactoryBot.create(:user, email: 'test@example.com')
@@ -38,7 +39,7 @@ RSpec.describe User, type: :model do
       expect(user2.errors.full_messages).to include('メールアドレスはすでに存在します')
     end
 
-    #データベースに小文字へ保存されること
+    # データベースに小文字へ保存されること
     it 'is saved in lowercase' do
       user = FactoryBot.create(:user, email: 'TEST@ExaMpLE.coM')
       expect(user.reload.email).to eq 'test@example.com'
@@ -46,34 +47,35 @@ RSpec.describe User, type: :model do
   end
 
   describe 'has password' do
-    #パスワードが空でないこと
+    # パスワードが空でないこと
     it 'can not be blank' do
       user = FactoryBot.build(:user, password: nil)
       user.valid?
       expect(user.errors.full_messages).to include('パスワードを入力してください')
     end
-    #最低文字数が8文字であること
-    it 'is too short when the length is less than 8 chars ' do
+
+    # 最低文字数が8文字であること
+    it 'is too short when the length is less than 8 chars' do
       user = FactoryBot.build(:user, password: 'a' * 7)
       user.valid?
       expect(user.errors.full_messages).to include('パスワードは8文字以上で入力してください')
     end
   end
 
-  #ユーザが削除された時に、itemが削除されること
-  describe 'have associated models ' do
+  # ユーザが削除された時に、itemが削除されること
+  describe 'have associated models' do
     let!(:user) { FactoryBot.create(:user) }
     let!(:item) { FactoryBot.create(:item, user: user) }
     let!(:log) { FactoryBot.create(:log, item: item) }
 
-     #ユーザが削除された時に、logも削除されること
+    # ユーザが削除された時に、logも削除されること
     it 'associated items are destroyed' do
-      expect { user.destroy }.to change{ Item.count }.by(-1)
-    end 
+      expect { user.destroy }.to change { Item.count }.by(-1)
+    end
 
-     #ユーザが削除された時に、logも削除されること
+    # ユーザが削除された時に、logも削除されること
     it 'associated logs are created' do
-      expect { user.destroy }.to change{ Log.count }.by(-1)
+      expect { user.destroy }.to change { Log.count }.by(-1)
     end
   end
 end
