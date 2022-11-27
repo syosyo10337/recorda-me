@@ -5,8 +5,6 @@ services:
     image: postgres:14
     volumes:
       - db-data:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
     environment:
       POSTGRES_PASSWORD: postgres
 
@@ -21,7 +19,6 @@ services:
       - bundle:/usr/local/bundle
     stdin_open: true
     tty: true
-    command: rails s -e development -b '0.0.0.0'
     ports:
       - 3000:3000
     depends_on:
