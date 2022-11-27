@@ -37,6 +37,7 @@ Password: guestpass
 - CSSフレームワーク *(Bootstrap5)*
 - インフラ構築 *(AWS)*
 - linter/formatter *(Rubocop)*
+- テストフレームワーク*(Rspec)*
 - CI *(Circle CI)*
 
 ## インフラ構成図
