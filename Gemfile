@@ -35,6 +35,14 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
   gem 'spring-commands-rspec'
+
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-vars'
+  gem 'capistrano3-puma'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
