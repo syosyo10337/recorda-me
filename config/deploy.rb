@@ -14,7 +14,7 @@ append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'node_module
 
 # Nginxの設定ファイル名と置き場所を修正
 set :nginx_config_name, "#{fetch(:application)}.conf"
-set :nginx_sites_enabled_path, "/etc/nginx/conf.d"
+set :nginx_sites_enabled_path, '/etc/nginx/conf.d'
 # Default value for default_env is {}
 # set :default_env, { path: '/opt/ruby/bin:$PATH' }
 

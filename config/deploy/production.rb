@@ -1,7 +1,7 @@
-server 'web', user: 'deploy', roles: %w{app db web}
+server 'web', user: 'deploy', roles: %w[app db web]
 
 set :ssh_options, {
-  keys: %w(/root/.ssh/id_rsa),
+  keys: %w[/root/.ssh/id_rsa],
   forward_agent: true,
   proxy: Net::SSH::Proxy::Command.new('ssh bastion -W %h:%p')
 
@@ -15,8 +15,6 @@ set :ssh_options, {
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-
-
 # role-based syntax
 # ==================
 
@@ -29,8 +27,6 @@ set :ssh_options, {
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-
-
 # Configuration
 # =============
 # You can set any configuration variable like in config/deploy.rb
@@ -38,8 +34,6 @@ set :ssh_options, {
 # For available Capistrano configuration variables see the documentation page.
 # http://capistranorb.com/documentation/getting-started/configuration/
 # Feel free to add new variables to customise your setup.
-
-
 
 # Custom SSH Options
 # ==================
