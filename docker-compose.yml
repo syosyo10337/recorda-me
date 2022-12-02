@@ -17,6 +17,7 @@ services:
       - .:/recorda-me
       - node_modules:/recorda-me/node_modules
       - bundle:/usr/local/bundle
+      - config:/root/.ssh/
     stdin_open: true
     tty: true
     ports:
@@ -36,3 +37,4 @@ volumes:
   node_modules:
   db-data:
   bundle:
+  config:
