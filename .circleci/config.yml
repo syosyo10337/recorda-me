@@ -55,6 +55,9 @@ jobs:
       - browser-tools/install-chromedriver
       - ruby/rspec-test:
           include: spec/**/*_spec.rb
+      - add_ssh_keys:
+          fingerprints:
+            - "a1:a6:dc:87:b3:12:12:82:23:00:33:09:0d:ba:c8:2b"
 
   deploy:
       docker:
