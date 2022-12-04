@@ -1,9 +1,9 @@
-server 'web', user: 'deploy', roles: %w[app db web]
+server 'www.recorda-me.link', user: 'deploy', roles: %w[app db web]
 
 set :ssh_options, {
-  keys: ['~/.ssh/takahashi.pem'],
+  keys: ENV.fecth('SSH_KEY'),
   forward_agent: true,
-  proxy: Net::SSH::Proxy::Command.new('ssh bastion -W %h:%p')
+  proxy: Net::SSH::Proxy::Command.new("ssh #{ENV.fetch('BASTION_SERVER_IP')}. -W %h:%p")
 }
 # server-based syntax
 # ======================
