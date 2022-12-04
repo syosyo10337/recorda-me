@@ -4,7 +4,7 @@ set :ssh_options, {
   keys: ENV.fetch('SSH_KEY'),
   forward_agent: true,
   user: 'ec2-user',
-  proxy: Net::SSH::Proxy::Command.new("ssh  #{ENV.fetch('BASTION_SERVER_IP')} -W %h:%p")
+  proxy: Net::SSH::Proxy::Command.new("ssh -o StrictHostKeyChecking=no #{ENV.fetch('BASTION_SERVER_IP')} -W %h:%p")
 }
 # server-based syntax
 # ======================
