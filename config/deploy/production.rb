@@ -3,8 +3,7 @@ server 'www.recorda-me.link', user: 'deploy', roles: %w[app db web]
 set :ssh_options, {
   keys: ENV.fetch('SSH_KEY'),
   forward_agent: true,
-  user: 'ec2-user',
-  proxy: Net::SSH::Proxy::Command.new("ssh -o StrictHostKeyChecking=no #{ENV.fetch('BASTION_SERVER_IP')} -W %h:%p")
+  proxy: Net::SSH::Proxy::Command.new("ssh -o StrictHostKeyChecking=no ec2-user#{ENV.fetch('BASTION_SERVER_IP')} -W %h:%p")
 }
 # server-based syntax
 # ======================
