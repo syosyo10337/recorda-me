@@ -5,7 +5,7 @@ set :ssh_options, {
   keys: '~/.ssh/takahashi.pem',
   forward_agent: true,
   # proxy: Net::SSH::Proxy::Command.new("ssh -o StrictHostKeyChecking=no ec2-user@#{ENV.fetch('BASTION_SERVER_IP')} -W %h:%p")
-  proxy: Net::SSH::Proxy::Command.new('ssh ec2-user@35.74.183.113 -W %h:%p')
+  proxy: Net::SSH::Proxy::Command.new('ssh -o StrictHostKeyChecking=no ec2-user@35.74.183.113 -W %h:%p')
 }
 # server-based syntax
 # ======================
