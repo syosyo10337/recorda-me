@@ -1,13 +1,13 @@
 server 'web', user: 'deploy', roles: %w[app db web]
 
 set :ssh_options, {
-  keys: %w[/root/.ssh/id_rsa],
+  keys: [ENV.fetch('PRODUCTION_SSH_KEY').to_s],
   forward_agent: true,
   proxy: Net::SSH::Proxy::Command.new('ssh bastion -W %h:%p')
 
 }
 # server-based syntax
-# ======================
+# ======================f
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 

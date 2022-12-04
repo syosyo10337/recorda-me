@@ -64,3 +64,7 @@ workflows:
       - test:
           requires:
             - build
+
+add_ssh_keys:
+  fingreprints:
+    "a1:a6:dc:87:b3:12:12:82:23:00:33:09:0d:ba:c8:2b"
