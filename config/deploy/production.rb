@@ -1,7 +1,7 @@
 server 'www.recorda-me.link', user: 'deploy', roles: %w[app db web]
 
 set :ssh_options, {
-  keys: %w[/root/.ssh/id_rsa],
+  keys: ENV.fetch('PRODUCTION_SSH_KEY'),
   forward_agent: true,
   proxy: Net::SSH::Proxy::Command.new('ssh bastion.recorda-me.link -W %h:%p')
 
