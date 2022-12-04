@@ -1,6 +1,5 @@
 server 'web', user: 'deploy', roles: %w[app db web]
 
-
 set :ssh_options, {
   keys: %w[/root/.ssh/id_rsa],
   forward_agent: true,
