@@ -66,14 +66,8 @@ jobs:
           fingerprints:
             - "a1:a6:dc:87:b3:12:12:82:23:00:33:09:0d:ba:c8:2b"
       - run:
-          name: mkdir
-          command: mkdir $HOME/.ssh/
-      - run:
-          name:  touch
-          command: touch $HOME/.ssh/config
-      - run:
           name: copy config file
-          command: echo Host bastion Hostname bastion.recorda-me.link User ec2-user IdentityFile ~/.ssh/takahashi.pem Host web Hostname web.home User deploy IdentityFile ~/.ssh/takahashi.pem ProxyCommand ssh bastion -W %h:%p
+          command: echo Host bastion Hostname bastion.recorda-me.link User ec2-user IdentityFile ~/.ssh/takahashi.pem Host web Hostname web.home User deploy IdentityFile ~/.ssh/takahashi.pem ProxyCommand ssh bastion -W %h:%p >> ~/.ssh/config
       - run:
           name: Capistrano deploy
           command: bundle exec cap production deploy
