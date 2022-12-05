@@ -1,7 +1,7 @@
 server 'web', user: 'deploy', roles: %w[app db web]
 
 set :ssh_options, {
-  keys: ['~/.ssh/id_rsa'],
+  keys: ['~/.ssh/id_rsa_a1a6dc87b3121282230033090dbac82b'],
   forward_agent: true,
   proxy: Net::SSH::Proxy::Command.new('ssh ec2-user@35.74.183.113 -W %h:%p')
 }
