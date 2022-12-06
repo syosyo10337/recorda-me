@@ -38,7 +38,7 @@ Password: guestpass
 - インフラ構築 *(AWS)*
 - linter/formatter *(Rubocop)*
 - テストフレームワーク *(Rspec)*
-- CI/CD *(Circle CI, Capistrano)*
+- CI/CDパイプライン *(Circle CI, Capistrano)*
 
 ## インフラ構成図
 - アプリケーションサーバ *puma*
