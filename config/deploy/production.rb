@@ -1,7 +1,7 @@
 server 'web', user: 'deploy', roles: %w[app db web]
 
 set :ssh_options, {
-  keys: ['~/.ssh/id_rsa_a1a6dc87b3121282230033090dbac82b']
+  keys: [ENV.fetch('SSH_KEY')]
 }
 
 # ローカルからのデプロイのための設定(~/.ssh/configもありました。)

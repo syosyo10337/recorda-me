@@ -1,0 +1,10 @@
+Host bastion
+    Hostname bastion.recorda-me.link
+    User ec2-user
+    StrictHostKeyChecking no
+
+Host web
+    Hostname web.home
+    User deploy
+    ProxyCommand ssh bastion -W %h:%p
+    StrictHostKeyChecking no

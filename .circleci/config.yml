@@ -66,14 +66,8 @@ jobs:
           fingerprints:
             - "a1:a6:dc:87:b3:12:12:82:23:00:33:09:0d:ba:c8:2b"
       - run:
-          name: copy config file
-          command: echo Host bastion \n
-                        Hostname bastion.recorda-me.link \n
-                        User ec2-user \n
-                        IdentityFile ~/.ssh/id_rsa_a1a6dc87b3121282230033090dbac82b \n
-                        Host web Hostname web.home \n
-                        User deploy \n
-                        IdentityFile ~/.ssh/id_rsa_a1a6dc87b3121282230033090dbac82b \n ProxyCommand ssh bastion -W %h:%p >> ~/.ssh/config >> ~/.ssh/config
+          name: Add ssh config file
+          command: cat ~/project/.circleci/circleci_ssh_config >> ~/.ssh/config
       - run:
           name: Capistrano deploy
           command: bundle exec cap production deploy
@@ -87,9 +81,9 @@ workflows:
       - test:
           requires:
             - build
-      - deploy
-          # requires:
-          #   - test
-          # filters:
-          #     branches:
-          #       only: main
+      - deploy:
+          requires:
+            - test
+          filters:
+              branches:
+                only: main
