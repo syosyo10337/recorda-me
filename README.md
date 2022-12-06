@@ -38,7 +38,7 @@ Password: guestpass
 - インフラ構築 *(AWS)*
 - linter/formatter *(Rubocop)*
 - テストフレームワーク *(Rspec)*
-- CI *(Circle CI)*
+- CI/CD *(Circle CI, Capistrano)*
 
 ## インフラ構成図
 - アプリケーションサーバ *puma*
@@ -47,7 +47,7 @@ Password: guestpass
 - Route 53 - DNSサーバ/ドメイン取得
 - ALB for SSL処理/負荷分散
 
-<img src="https://user-images.githubusercontent.com/110030968/201706923-890fcfea-0d89-4df4-8d1c-c6a5e0e8486c.png" style="width: 90%;">
+<img src="https://user-images.githubusercontent.com/110030968/205818310-b33a2fcd-d905-4ec7-af9f-9448ac10d546.svg" style="width: 90%;">
 
 
 ## 動機
