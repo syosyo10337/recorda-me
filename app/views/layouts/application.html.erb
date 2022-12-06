@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-  
+
+    
+    <%= favicon_pack_tag 'media/images/favicon/apple-touch-icon.png' ,sizes: "180x180"%>
+    <%= favicon_pack_tag 'media/images/favicon/favicon-32x32.png' ,sizes: "32x32"%>
+    <%=  favicon_pack_tag 'media/images/favicon/favicon-16x16.png', sizes: "16x16"%>
+    
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
