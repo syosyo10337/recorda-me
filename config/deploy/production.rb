@@ -1,11 +1,14 @@
-server 'www.recorda-me.link', user: 'deploy', roles: %w[app db web]
+server 'web', user: 'deploy', roles: %w[app db web]
 
 set :ssh_options, {
-  keys: [ENV.fetch('PRODUCTION_SSH_KEY')],
-  forward_agent: true,
-  auth_methods: %w[publickey],
-  proxy: Net::SSH::Proxy::Command.new('ssh ec2-user@bastion.recorda-me.link -W %h:%p')
+  keys: [ENV.fetch('SSH_KEY')]
 }
+
+# ローカルからのデプロイのための設定(~/.ssh/configもありました。)
+# set :ssh_options, {
+#   keys: ['~/.ssh/takahashi.pem']
+# }
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
