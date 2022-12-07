@@ -40,6 +40,11 @@ Password: guestpass
 - テストフレームワーク *(Rspec)*
 - CI/CDパイプライン *(Circle CI, Capistrano)*
 
+## データモデル
+<img src="https://user-images.githubusercontent.com/110030968/206080789-4bddacc3-0288-4489-b972-94ac858c5b2a.svg">
+
+
+
 ## インフラ構成図
 - アプリケーションサーバ *puma*
 - リバースプロキシ *nginx*
@@ -47,7 +52,7 @@ Password: guestpass
 - Route 53 - DNSサーバ/ドメイン取得
 - ALB for SSL処理/負荷分散
 
-<img src="https://user-images.githubusercontent.com/110030968/205818310-b33a2fcd-d905-4ec7-af9f-9448ac10d546.svg" style="width: 90%;">
+<img src="https://user-images.githubusercontent.com/110030968/206081111-351bd3a2-a0b0-4e02-a93e-d5ff41ae6365.svg">
 
 
 ## 動機
