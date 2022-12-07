@@ -41,7 +41,7 @@ Password: guestpass
 - CI/CDパイプライン *(Circle CI, Capistrano)*
 
 ## データモデル
-<img src="https://user-images.githubusercontent.com/110030968/206080789-4bddacc3-0288-4489-b972-94ac858c5b2a.svg">
+<img src="https://user-images.githubusercontent.com/110030968/206081563-8d077278-4fab-49b4-a9dc-e5226c111370.svg">
 
 
 
