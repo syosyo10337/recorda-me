@@ -11,8 +11,6 @@
     </ul>
   </div>
   <div class="card-body">
-    <%= pie_chart  @items.map { |item|
-    [item.name, item.logs.sum('amount / 60')]
-   }, suffix: "時間" %>
+    <%= pie_chart charts_all_pies_path, suffix: "時間" %>
   </div>
 </div>

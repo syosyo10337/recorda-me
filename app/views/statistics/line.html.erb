@@ -11,10 +11,6 @@
     </ul>
   </div>
   <div class="card-body">
-    <%= line_chart  @items.map { |item|
-  { name: item.name,
-    data: item.logs.group_by_month('logs.created_at',  last: 3,
-    format: '%m月').sum('logs.amount / 60') }
-  }, suffix: "時間", curve: false%>
+    <%= line_chart  charts_all_lines_path, suffix: "時間", curve: false%>
   </div>
 </div>
