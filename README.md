@@ -39,6 +39,7 @@ Password: guestpass
 - linter/formatter *(Rubocop)*
 - テストフレームワーク *(Rspec)*
 - CI/CDパイプライン *(Circle CI, Capistrano)*
+- pull requestを用いた実務を想定した開発
 
 ## データモデル
 <img src="https://user-images.githubusercontent.com/110030968/206081563-8d077278-4fab-49b4-a9dc-e5226c111370.svg">
