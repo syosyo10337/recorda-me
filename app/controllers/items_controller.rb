@@ -45,7 +45,6 @@ class ItemsController < ApplicationController
 
   def item_owner?
     return if @item.user == current_user
-
     redirect_to root_path, alert: '権限のない操作です。'
   end
 end
