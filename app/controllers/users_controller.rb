@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def guest
-    user = User.find(1)
+    user = User.find(2)
     sign_in user
     redirect_to authenticated_root_path, notice: 'ゲストとしてログインしました。'
   end
