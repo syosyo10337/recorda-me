@@ -31,6 +31,7 @@ Password: guestpass
   - 項目別の比率
   - 週間累計時間表示
 - ユーザ登録機能 *(devise gem)*
+- ゲストログイン機能
 - ページネーション機能 *(kaminari gem)*
 
 - 開発環境 *(docker)*
