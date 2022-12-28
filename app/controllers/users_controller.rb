@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def guest
-    user = User.find(2)
+    user = User.find_by(email: 'guest@hogehoge.com')
     sign_in user
     redirect_to authenticated_root_path, notice: 'ゲストとしてログインしました。'
   end
