@@ -46,6 +46,7 @@ body {
 
 
 
+
 // itemごとの配色
 .item-bg-1{
   background-color: #D896AD;
@@ -102,5 +103,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
+}
+#item_name_input {
+  max-width: 350px;
 }
