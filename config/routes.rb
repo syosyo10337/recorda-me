@@ -27,4 +27,8 @@ Rails.application.routes.draw do
     get 'all_lines'
     get 'all_pies'
   end
+
+  namespace :api do
+    resources :items, only: %i[index]
+  end
 end
