@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from "./Button";
 
 const Modal = ({closeModal, title, currentItem}) => {
+  const [inputVaule, setInputVaule] = useState("新しい名前");
+  
   return (
     <div id="overlay">
-      <div id="modalContent" class="col-10 col-md-6 col-xl-5">
-        <div class="modal-header">
-          <h1 class="text-center">{title}</h1>
+      <div id="modalContent" className="col-10 col-md-6 col-xl-5">
+        <div className="modal-header">
+          <h1 className="text-center">{title}</h1>
         </div>
-        <div class="modalMessage my-3">
+        <div className="modalMessage my-3">
           <h5>登録中の名前 : {currentItem.name}</h5>
-          <input class="form-control" type="text" placeholder={currentItem.name} name="item[name]" id="item_name_input" />
+          <input 
+            className="form-control" 
+            type="text" 
+            placeholder={inputVaule}
+            name="item[name]" 
+            id="item_name_input"
+            onChange={e => setInputVaule(e.target.value)} 
+          />
         </div>
-        <div class="text-end">
-          <input type="submit" name="commit" value="更新する" class="btn btn-secondary me-1" />
-          <a className="btn btn-outline-secondary" onClick={closeModal}>閉じる</a>
+        <div className="text-end">
+          <Button text="更新する" />
+          <Button 
+            text="閉じる" className="btn-outline-secondary ms-1"
+            onClick={closeModal} 
+          />
         </div>
       </div>
     </div>

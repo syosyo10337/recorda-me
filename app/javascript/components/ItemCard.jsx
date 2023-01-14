@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 const ItemCard = ({item, openModal, setCurrentItem}) => {
   return (
@@ -6,15 +7,12 @@ const ItemCard = ({item, openModal, setCurrentItem}) => {
       <div className="card my-1 item-bg-<%= item_num(item) %>">
         <div className="card-body">
           <h5 className="card-title" id="item-<%= item_num(item) %>">{item.name}</h5>
-          <button 
-            href="#" 
-            className="btn btn-secondary btn-sm"
+          <Button 
+            text="編集する"
+            className="btn-sm btn-secondary"
             onClick={() => {
               openModal(), setCurrentItem(item)
-              }
-              }>
-            編集する
-          </button>
+              }}/>
         </div>
       </div>
   </div>
