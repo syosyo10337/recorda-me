@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   get '/privacy_policy', to: 'static_pages#privacy'
   get '/terms_of_service', to: 'static_pages#service'
   root 'static_pages#home'
-  get '/guest', to: 'users#guest'
+  post '/guest', to: 'users#guest'
 
   namespace :charts do
     get 'all_lines'
