@@ -7,7 +7,7 @@ const ItemCard = ({item, openModal, setCurrentItem}) => {
       <div className="card my-1 item-bg-<%= item_num(item) %>">
         <div className="card-body">
           <h5 className="card-title" id="item-<%= item_num(item) %>">{item.name}</h5>
-          <Button 
+          <Button
             text="編集する"
             className="btn-sm btn-secondary"
             onClick={() => {

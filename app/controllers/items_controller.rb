@@ -6,7 +6,6 @@ class ItemsController < ApplicationController
   # @itemsに代入
   before_action :set_items_includes_logs, only: %i[show]
 
-  # 項目一覧画面
   def index
     @items = current_user.items.get_fixed_order
   end
@@ -21,7 +20,6 @@ class ItemsController < ApplicationController
   # 項目名編集画面
   def edit; end
 
-  # 項目名を更新する
   def update
     if @item.update(items_params)
       redirect_to items_path, notice: '名前を更新しました。'

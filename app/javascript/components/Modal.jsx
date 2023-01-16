@@ -1,9 +1,20 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Button from "./Button";
 
-const Modal = ({closeModal, title, currentItem}) => {
-  const [inputVaule, setInputVaule] = useState("新しい名前");
-  
+const Modal = ({closeModal, title, currentItem, fetch}) => {
+  const [inputVaule, setInputVaule] = useState("");
+
+  const updateItem = async () => {
+    const csrfToken = document.querySelector('[name="csrf-token"]').content
+    axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
+
+    await axios.patch(`/api/items/${currentItem.id}`, {name: inputVaule});
+    closeModal();
+    fetch();
+  };
+
+
   return (
     <div id="overlay">
       <div id="modalContent" className="col-10 col-md-6 col-xl-5">
@@ -13,18 +24,21 @@ const Modal = ({closeModal, title, currentItem}) => {
         <div className="modalMessage my-3">
           <h5>登録中の名前 : {currentItem.name}</h5>
           <input 
-            className="form-control" 
             type="text" 
-            placeholder={inputVaule}
-            name="item[name]" 
+            placeholder="新しい名前"
             id="item_name_input"
+            className="form-control"
+            value={inputVaule}
             onChange={e => setInputVaule(e.target.value)} 
           />
         </div>
         <div className="text-end">
-          <Button text="更新する" />
-          <Button 
-            text="閉じる" className="btn-outline-secondary ms-1"
+          <Button
+            text="更新する"
+            onClick={updateItem} />
+          <Button
+            text="閉じる"
+            className="btn-outline-secondary ms-1"
             onClick={closeModal} 
           />
         </div>

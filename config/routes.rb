@@ -29,6 +29,6 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :items, only: %i[index]
+    resources :items, only: %i[index update]
   end
 end

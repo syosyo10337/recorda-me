@@ -15,10 +15,8 @@ const ItemsContainer = () => {
   useEffect(() => {
     fetch();
   }, [])
-
-  const [currentItem, setCurrentItem] = useState({});
   
-
+  const [currentItem, setCurrentItem] = useState({});
 
   return (
     <div className="text-start">
@@ -38,7 +36,8 @@ const ItemsContainer = () => {
       {isShown ? <Modal
                   closeModal={toggleModal}
                   title="項目名を編集する"
-                  currentItem={currentItem}/> 
+                  currentItem={currentItem}
+                  fetch={fetch}/>
               : <></>}
     </div>
   )

@@ -3,7 +3,7 @@ import React from 'react';
 const Button = ({
   className = "btn-secondary", 
   text = "ボタン",
-  onClick = ""
+  onClick
 }) => {
   return (
     <button 
