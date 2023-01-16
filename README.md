@@ -8,12 +8,6 @@
 
 <a href="https://www.recorda-me.link">https://www.recorda-me.link</a>
 
-GUESTでのログイン
-```
-ID: guest@example.com
-Password: guestpass
-```
-
 
 ## 実装した機能、技術
 <div style="padding-bottom: 5px">
@@ -21,6 +15,8 @@ Password: guestpass
 <img src="https://img.shields.io/badge/Rails-6.1.7-critical?style=flat-square&logo=rubyonrails">
 <img src="https://img.shields.io/badge/Docker-20.10.21-blue?style=flat-square&logo=docker">
 <img src="https://img.shields.io/badge/Bootstrap-5.2.1-blueviolet?style=flat-square&logo=bootstrap">
+(<img src="https://img.shields.io/badge/React-18.2.0-9cf?style=flat-square&logo=react">)
+
 </div>
 
 - 記録を15分単位で保存する機能
@@ -33,6 +29,7 @@ Password: guestpass
 - ユーザ登録機能 *(devise gem)*
 - ゲストログイン機能
 - ページネーション機能 *(kaminari gem)*
+- レスポンシブによるモバイル対応
 
 - 開発環境 *(docker)*
 - CSSフレームワーク *(Bootstrap5)*
@@ -41,6 +38,9 @@ Password: guestpass
 - テストフレームワーク *(Rspec)*
 - CI/CDパイプライン *(Circle CI, Capistrano)*
 - pull requestを用いた実務を想定した開発
+
+
+- (導入中)Reactコンポーンネントによる一部ページのシングルページ化
 
 ## データモデル
 <img src="https://user-images.githubusercontent.com/110030968/206081563-8d077278-4fab-49b4-a9dc-e5226c111370.svg">
