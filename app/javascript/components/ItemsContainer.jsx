@@ -22,11 +22,12 @@ const ItemsContainer = () => {
     <div className="text-start">
       <h1>記録中の活動項目一覧</h1>
       <div className="row mt-4">
-        {items.map(item => {
+        {items.map((item, index) => {
           return (
             <ItemCard 
               key={item.id}
               item={item}
+              itemNumber={index + 1}
               openModal={toggleModal}
               setCurrentItem={setCurrentItem}
               />
