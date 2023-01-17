@@ -1,13 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import ItemContainer from '../components/ItemsContainer'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Items from '../components/pages/Items';
 
 const App = () => {
-  return  <ItemContainer />; 
+  return  <Items />
 }
 
 const root = ReactDOM.createRoot(document.getElementById('app'));
 
 root.render(
-  <App />,
+  <App />
 );
