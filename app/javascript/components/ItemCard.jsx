@@ -13,6 +13,11 @@ const ItemCard = ({item, openModal, setCurrentItem, itemNumber}) => {
             onClick={() => {
               openModal(), setCurrentItem(item)
               }}/>
+          <a
+            href={`/items/${item.id}`}
+            className="badge text-reset ms-1 text-wrap">
+            記録を見る
+          </a>
         </div>
       </div>
   </div>
