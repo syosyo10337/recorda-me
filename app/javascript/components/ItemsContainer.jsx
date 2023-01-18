@@ -1,11 +1,12 @@
 import React, { useState, useEffect }from "react";
+import axios from "axios";
 import ItemCard from "./ItemCard";
 import Modal  from "./Modal";
-import axios from "axios";
+import Alert from "./Alert";
 
 const ItemsContainer = () => {
-  const [isShown, setIsShown] = useState(false);
-  const toggleModal = () => setIsShown(prev => !prev);
+  const [isModalShown, setIsModalShown] = useState(false);
+  const toggleModal = () => setIsModalShown(prev => !prev);
 
   const [items, setItems] = useState([]);
   const fetch  = async () => {
@@ -16,9 +17,13 @@ const ItemsContainer = () => {
     fetch();
   }, [])
   
-  const [currentItem, setCurrentItem] = useState({});
+  const [selectedItem, setSelectedItem] = useState({});
 
+  const [isAlerted, setIsAlerted] = useState(false);
   return (
+    <>
+    {isAlerted ? <Alert />
+                : <></>}
     <div className="text-start">
       <h1>記録中の活動項目一覧</h1>
       <div className="row mt-4">
@@ -29,18 +34,20 @@ const ItemsContainer = () => {
               item={item}
               itemNumber={index + 1}
               openModal={toggleModal}
-              setCurrentItem={setCurrentItem}
+              setSelectedItem={setSelectedItem}
               />
           )
           })}
       </div>
-      {isShown ? <Modal
+      {isModalShown ? <Modal
                   closeModal={toggleModal}
                   title="項目名を編集する"
-                  currentItem={currentItem}
+                  selectedItem={selectedItem}
+                  setIsAlerted={setIsAlerted}
                   fetch={fetch}/>
               : <></>}
     </div>
+    </>
   )
 };
 

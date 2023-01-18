@@ -2,15 +2,25 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Button from "./Button";
 
-const Modal = ({closeModal, title, currentItem, fetch}) => {
+const Modal = (
+  {
+    closeModal,
+    title,
+    selectedItem,
+    setIsAlerted,
+    fetch,
+  }
+  ) => {
   const [inputVaule, setInputVaule] = useState("");
 
   const updateItem = async () => {
     const csrfToken = document.querySelector('[name="csrf-token"]').content
     axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
 
-    await axios.patch(`/api/items/${currentItem.id}`, {name: inputVaule});
+    await axios.patch(`/api/items/${selectedItem.id}`, {name: inputVaule});
     closeModal();
+    setIsAlerted(true);
+    setTimeout(() => setIsAlerted(false), 2000)
     fetch();
   };
 
@@ -22,7 +32,7 @@ const Modal = ({closeModal, title, currentItem, fetch}) => {
           <h1 className="text-center">{title}</h1>
         </div>
         <div className="modalMessage my-3">
-          <h5>登録中の名前 : {currentItem.name}</h5>
+          <h5>登録中の名前 : {selectedItem.name}</h5>
           <input 
             type="text" 
             placeholder="新しい名前"

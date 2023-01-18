@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-const ItemCard = ({item, openModal, setCurrentItem, itemNumber}) => {
+const ItemCard = ({item, openModal, setSelectedItem, itemNumber}) => {
   return (
     <div className="col-md-3">
       <div className={`card my-1 item-bg-${itemNumber}`}>
@@ -11,7 +11,7 @@ const ItemCard = ({item, openModal, setCurrentItem, itemNumber}) => {
             text="名前を変更"
             className="btn-sm btn-secondary"
             onClick={() => {
-              openModal(), setCurrentItem(item)
+              openModal(), setSelectedItem(item)
               }}/>
           <a
             href={`/items/${item.id}`}

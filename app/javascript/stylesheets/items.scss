@@ -1,0 +1,45 @@
+// modal
+#modalContent {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+
+  animation-name: fadeIn;
+	animation-duration: .3s;
+	animation-fill-mode:forwards;
+}
+@keyframes fadeIn{
+  from {
+  opacity: 0;
+  }
+
+  to {
+  opacity: 1;
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#item_name_input {
+  max-width: 350px;
+}
+
+// toast
+#toast {
+  z-index: 1030;
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%) 
+}
