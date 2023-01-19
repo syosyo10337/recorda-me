@@ -18,9 +18,9 @@ const Modal = (
     axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
 
     await axios.patch(`/api/items/${selectedItem.id}`, {name: inputVaule});
-    closeModal();
+    setTimeout(() => closeModal(), 100)
     setIsAlerted(true);
-    setTimeout(() => setIsAlerted(false), 2000)
+    setTimeout(() => setIsAlerted(false), 3000)
     fetch();
   };
 
@@ -36,6 +36,7 @@ const Modal = (
           <input 
             type="text" 
             placeholder="新しい名前"
+            autoFocus={true}
             id="item_name_input"
             className="form-control"
             value={inputVaule}
