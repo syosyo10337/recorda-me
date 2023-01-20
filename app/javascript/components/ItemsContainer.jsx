@@ -19,11 +19,15 @@ const ItemsContainer = () => {
   
   const [selectedItem, setSelectedItem] = useState({});
 
-  const [isAlerted, setIsAlerted] = useState(false);
+  const [alert, setAlert] = useState({
+    "isShown": false,
+    "status": "success",
+    "message": "名前を更新しました。"
+  });
+
   return (
     <>
-    {isAlerted ? <Alert />
-                : <></>}
+    {alert.isShown ? <Alert alert={alert} /> : <></>}
     <div className="text-start">
       <h1>記録中の活動項目一覧</h1>
       <div className="row mt-4">
@@ -43,9 +47,9 @@ const ItemsContainer = () => {
                   closeModal={toggleModal}
                   title="項目名を編集する"
                   selectedItem={selectedItem}
-                  setIsAlerted={setIsAlerted}
-                  fetch={fetch}/>
-              : <></>}
+                  alert={alert}
+                  setAlert={setAlert}
+                  fetch={fetch}/> : <></>}
     </div>
     </>
   )

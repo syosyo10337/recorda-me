@@ -7,23 +7,39 @@ const Modal = (
     closeModal,
     title,
     selectedItem,
-    setIsAlerted,
+    alert,
+    setAlert,
     fetch,
   }
   ) => {
-  const [inputVaule, setInputVaule] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   const updateItem = async () => {
     const csrfToken = document.querySelector('[name="csrf-token"]').content
-    axios.defaults.headers.common['X-CSRF-Token'] = csrfToken
-
-    await axios.patch(`/api/items/${selectedItem.id}`, {name: inputVaule});
+    axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
+    await axios.patch(`/api/items/${selectedItem.id}`, {name: inputValue});
     setTimeout(() => closeModal(), 100)
-    setIsAlerted(true);
-    setTimeout(() => setIsAlerted(false), 3000)
     fetch();
   };
 
+  const validateMaxLength = () => {
+    if(inputValue.length > 15) {
+      setAlert({
+        "isShown": true,
+        "status": "danger",
+        "message": "名前は、15文字以内で入力してください"
+      });
+      setInputValue("");
+    } else {
+      updateItem();
+      setAlert({
+        "isShown": true,
+        "status": "success",
+        "message": "名前を更新しました。"
+      });
+    };
+    setTimeout(() => setAlert({...alert, "isShown": false}), 3000);
+  };
 
   return (
     <div id="overlay">
@@ -39,14 +55,15 @@ const Modal = (
             autoFocus={true}
             id="item_name_input"
             className="form-control"
-            value={inputVaule}
-            onChange={e => setInputVaule(e.target.value)} 
+            value={inputValue}
+            onChange={e => setInputValue(e.target.value)}
           />
         </div>
         <div className="text-end">
           <Button
             text="更新する"
-            onClick={updateItem} />
+            onClick={validateMaxLength}
+          />
           <Button
             text="閉じる"
             className="btn-outline-secondary ms-1"
@@ -58,8 +75,4 @@ const Modal = (
   )
 };
 
-
 export default Modal;
-
-
-//errorメッセージが出なくなっているよ

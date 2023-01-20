@@ -1,9 +1,9 @@
 import React from "react";
 
-const Alert = () => {
+const Alert = ({alert}) => {
   return (
-    <div id="alert" className="alert alert-success w-50">
-      名前を更新しました。
+    <div id="alert_container" className={`alert alert-${alert.status} w-50`}>
+      {alert.message}
     </div>
   )
 }

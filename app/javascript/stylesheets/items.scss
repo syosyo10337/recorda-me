@@ -36,7 +36,7 @@
 }
 
 // alert
-#alert {
+#alert_container{
   z-index: 1030;
   position: fixed;
   top: 70px;
@@ -44,8 +44,8 @@
   transform: translateX(-50%);
 
   animation-name: fadeOut;
-  animation-delay: 2s;
-	animation-duration: 2s;
+  animation-delay: 1.5s;
+	animation-duration: 1.5s;
 	animation-fill-mode:forwards;
 }
 @keyframes fadeOut {
