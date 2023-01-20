@@ -1,5 +1,8 @@
+// cssファイルのエントリーポイント
 $pagination-active-bg: #6c757db8;
 @import "~bootstrap/scss/bootstrap.scss";
+@import "./items.scss";
+
 //bootstrap調整
 body {
   letter-spacing: -0.01em;

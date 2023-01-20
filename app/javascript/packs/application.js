@@ -9,7 +9,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "chartkick/chart.js";
 import "bootstrap";
-import "../stylesheets/application";
+import "../stylesheets/application.scss";
 const images = require.context('../images', true);
 const imagePath = (name) => images(name, true);
 
