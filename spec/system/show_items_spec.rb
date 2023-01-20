@@ -22,7 +22,7 @@ RSpec.describe 'ShowItems', js: true, type: :system do
   it "access from item's index page" do
     login_as user
     visit items_path
-    click_on item.name
+    click_on '記録を見る'
     expect(page).to have_content item.name
     expect(page).to have_css 'li.item-bg-1'
     expect(page).to have_content '今日の活動を記録しよう'
