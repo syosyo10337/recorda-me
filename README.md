@@ -15,7 +15,7 @@
 <img src="https://img.shields.io/badge/Rails-6.1.7-critical?style=flat-square&logo=rubyonrails">
 <img src="https://img.shields.io/badge/Docker-20.10.21-blue?style=flat-square&logo=docker">
 <img src="https://img.shields.io/badge/Bootstrap-5.2.1-blueviolet?style=flat-square&logo=bootstrap">
-(<img src="https://img.shields.io/badge/React-18.2.0-9cf?style=flat-square&logo=react">)
+<img src="https://img.shields.io/badge/React-18.2.0-9cf?style=flat-square&logo=react">
 
 </div>
 
@@ -38,9 +38,7 @@
 - テストフレームワーク *(Rspec)*
 - CI/CDパイプライン *(Circle CI, Capistrano)*
 - pull requestを用いた実務を想定した開発
-
-
-- (導入中)Reactコンポーンネントによる一部ページのシングルページ化
+- Reactコンポーンネントによる一部ページのシングルページ化
 
 ## データモデル
 <img src="https://user-images.githubusercontent.com/110030968/206081563-8d077278-4fab-49b4-a9dc-e5226c111370.svg">
