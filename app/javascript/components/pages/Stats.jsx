@@ -1,5 +1,5 @@
 import React from "react";
-import Pie from "../charts/Pie";
+import PieChart from "../charts/PieChart";
 
 const Stats = () => {
   return (
@@ -15,8 +15,7 @@ const Stats = () => {
         </ul>
       </div>
       <div className="card-body">
-        <Pie />
-        {/* <%= pie_chart charts_all_pies_path, suffix: "時間" %> */}
+        <PieChart />
       </div>
     </div>
   )
