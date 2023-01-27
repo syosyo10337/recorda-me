@@ -1,7 +1,4 @@
 <%= render 'stats_header' %>
-<div class="card-body">
-  <%= pie_chart api_charts_all_pies_path, suffix: "時間" %>
-</div>
 <div id="app"></div>
 <div class="card-body">
   <%= javascript_pack_tag "StatsIndex" %>
