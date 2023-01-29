@@ -6,8 +6,11 @@ module Api
 
     def update
       item = Item.find(params[:id])
-      item.update(items_params)
-      head :ok
+      if item.update(items_params)
+        render json: '名前を更新しました。', status: :ok
+      else
+        render json: item.errors.full_messages, status: :unprocessable_entity
+      end
     end
 
     private

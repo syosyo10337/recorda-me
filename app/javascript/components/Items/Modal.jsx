@@ -9,36 +9,34 @@ const Modal = (
     selectedItem,
     alert,
     setAlert,
-    fetch,
+    fetchData,
   }
   ) => {
   const [inputValue, setInputValue] = useState("");
 
-  const updateItem = async () => {
+  const updateItem = () => {
     const csrfToken = document.querySelector('[name="csrf-token"]').content
     axios.defaults.headers.common['X-CSRF-Token'] = csrfToken;
-    await axios.patch(`/api/items/${selectedItem.id}`, {name: inputValue});
-    setTimeout(() => closeModal(), 100)
-    fetch();
-  };
 
-  const validateMaxLength = () => {
-    if(inputValue.length > 15) {
-      setAlert({
-        "isShown": true,
-        "status": "danger",
-        "message": "名前は、15文字以内で入力してください"
-      });
-      setInputValue("");
-    } else {
-      updateItem();
-      setAlert({
-        "isShown": true,
-        "status": "success",
-        "message": "名前を更新しました。"
-      });
-    };
-    setTimeout(() => setAlert({...alert, "isShown": false}), 3000);
+    axios.patch(`/api/items/${selectedItem.id}`, {name: inputValue})
+      .then(res => {
+        setTimeout(() => closeModal(), 500)
+        fetchData();
+        setAlert({
+          "isShown": true,
+          "status": "success",
+          "message": res.data
+        });
+      })
+      .catch(e => {
+        setAlert({
+          "isShown": true,
+          "status": "danger",
+          "message": e.response.data
+        })
+        setInputValue("");
+      })
+      setTimeout(() => setAlert({...alert, "isShown": false}), 3000);
   };
 
   return (
@@ -62,7 +60,7 @@ const Modal = (
         <div className="text-end">
           <Button
             text="更新する"
-            onClick={validateMaxLength}
+            onClick={updateItem}
           />
           <Button
             text="閉じる"
