@@ -11,7 +11,6 @@ const Button = ({
       onClick={onClick}>
       {text}
     </button>
-
   )
 };
 
