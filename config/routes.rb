@@ -24,9 +24,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :items, only: %i[index update]
-    namespace :charts do
+    namespace :stats do
       get 'all_lines'
       get 'all_pies'
+      get 'accumulate_amounts'
     end
+    # namespace :charts do
+    # end
   end
 end

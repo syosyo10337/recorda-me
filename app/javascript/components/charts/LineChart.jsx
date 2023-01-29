@@ -30,7 +30,7 @@ function LineChart() {
   });
   // FIXME: const datasets等の変数初期化とfectchData()の非同期処理の制御を理解しきれていない
   const fetchData = async () => {
-    const resp = await axios.get('/api/charts/all_lines')
+    const resp = await axios.get('/api/stats/all_lines')
     setData({
       "months": resp.data.timeline,
       "contents": resp.data.content

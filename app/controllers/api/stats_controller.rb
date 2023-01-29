@@ -1,6 +1,6 @@
 module Api
-  class ChartsController < ApplicationController
-    before_action :set_items_includes_logs, only: %i[all_pies all_lines]
+  class StatsController < ApplicationController
+    before_action :set_items_includes_logs, only: %i[all_pies all_lines accumulate_amounts]
     # FIXME: jsonデータを整形する。フロントで処理がすくなくなるように
     def all_lines
       render json: {
@@ -17,6 +17,14 @@ module Api
     def all_pies
       render json: @items.map { |item|
         [item.name, item.logs.sum('amount / 60')]
+      }
+    end
+
+    def accumulate_amounts
+      render json: {
+        total: @items.sum('logs.amount / 60'),
+        monthly: @items.where('logs.created_at > ?', Time.zone.now.beginning_of_month).sum('amount / 60'),
+        weekly: @items.where('logs.created_at > ?', Time.zone.now.beginning_of_week).sum('amount / 60')
       }
     end
 

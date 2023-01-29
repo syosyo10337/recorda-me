@@ -9,7 +9,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 function PieChart() {
   const [data, setData] = useState([]);
   const fetchData = async () => {
-    const resp = await axios.get("/api/charts/all_pies");
+    const resp = await axios.get("/api/stats/all_pies");
     setData(resp.data);
   };
   useEffect(() => {
