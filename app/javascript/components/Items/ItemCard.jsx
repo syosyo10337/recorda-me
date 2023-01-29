@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./Button";
+import Button from "../Button";
 
 const ItemCard = ({item, openModal, setSelectedItem, itemNumber}) => {
   return (

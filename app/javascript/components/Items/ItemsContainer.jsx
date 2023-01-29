@@ -9,12 +9,12 @@ const ItemsContainer = () => {
   const toggleModal = () => setIsModalShown(prev => !prev);
 
   const [items, setItems] = useState([]);
-  const fetch  = async () => {
+  const fetchData  = async () => {
     const resp = await axios.get('/api/items')
     setItems(resp.data);
   }
   useEffect(() => {
-    fetch();
+    fetchData();
   }, [])
   
   const [selectedItem, setSelectedItem] = useState({});
@@ -49,7 +49,7 @@ const ItemsContainer = () => {
                   selectedItem={selectedItem}
                   alert={alert}
                   setAlert={setAlert}
-                  fetch={fetch}/> : <></>}
+                  fetchData={fetchData}/> : <></>}
     </div>
     </>
   )
