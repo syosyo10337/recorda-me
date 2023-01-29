@@ -10,7 +10,7 @@ const ChartTabs = () => {
   });
   const activatePie = () => {
     switchToggle({
-      "switch" : 1,
+      "switch" : 1, 
       "pieStatus": "active",
       "lineStatus": ""
     })

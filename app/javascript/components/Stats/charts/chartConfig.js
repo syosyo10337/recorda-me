@@ -9,7 +9,7 @@ const ITEM_COLORS = [
   '#93C7B7',
   '#92BFC7',
   '#90B0CA',
-  '#B5A4C7',
+  '#8FACD0',
   '#B5A4C7',
   '#C59DBB',
 ]

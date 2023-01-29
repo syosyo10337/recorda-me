@@ -1,6 +1,6 @@
 import React from 'react';
-import StatsHeader from "../StatsHeader";
-import ChartTabs from "../ChartTabs";
+import StatsHeader from "../components/Stats/StatsHeader";
+import ChartTabs from "../components/Stats/ChartTabs";
 
 
 const Stats = () => {
