@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get '/stats/pie', to: 'statistics#pie'
-  get '/stats/line', to: 'statistics#line'
+  get '/stats', to: 'statistics#index'
 
-  resources :items, only: %i[index show edit update]
+  resources :items, only: %i[index show]
   resources :logs, only: %i[create destroy]
   # POST /logsの後のreloadを想定
   get '/logs', to: 'users#home'
@@ -23,12 +22,12 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   post '/guest', to: 'users#guest'
 
-  namespace :charts do
-    get 'all_lines'
-    get 'all_pies'
-  end
-
   namespace :api do
     resources :items, only: %i[index update]
+    namespace :stats do
+      get 'all_lines'
+      get 'all_pies'
+      get 'accumulate_amounts'
+    end
   end
 end
