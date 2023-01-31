@@ -13,9 +13,10 @@
 <div style="padding-bottom: 5px">
 <img src="https://img.shields.io/badge/Ruby-3.0.4-red?style=flat-square&logo=ruby">
 <img src="https://img.shields.io/badge/Rails-6.1.7-critical?style=flat-square&logo=rubyonrails">
-<img src="https://img.shields.io/badge/Docker-20.10.21-blue?style=flat-square&logo=docker">
-<img src="https://img.shields.io/badge/Bootstrap-5.2.1-blueviolet?style=flat-square&logo=bootstrap">
+<img src="https://img.shields.io/badge/JavaScript-yellow?style=flat-square&logo=javascript">
 <img src="https://img.shields.io/badge/React-18.2.0-9cf?style=flat-square&logo=react">
+<img src="https://img.shields.io/badge/Bootstrap-5.2.1-blueviolet?style=flat-square&logo=bootstrap">
+<img src="https://img.shields.io/badge/Docker-20.10.21-blue?style=flat-square&logo=docker">
 
 </div>
 
@@ -38,7 +39,9 @@
 - テストフレームワーク *(Rspec)*
 - CI/CDパイプライン *(Circle CI, Capistrano)*
 - pull requestを用いた実務を想定した開発
-- Reactコンポーンネントによる一部ページのシングルページ化
+- react-chart.js2によるチャート描画(React)
+- モーダル等の一部ページのReactコンポーネント化(React)
+
 
 ## データモデル
 <img src="https://user-images.githubusercontent.com/110030968/206081563-8d077278-4fab-49b4-a9dc-e5226c111370.svg">
@@ -53,6 +56,7 @@
 - ALB for SSL処理/負荷分散
 
 <img src="https://user-images.githubusercontent.com/110030968/215656898-5a6b8420-6688-46b1-b593-3cd3b7f8b17d.svg">
+
 
 ## 動機
 
