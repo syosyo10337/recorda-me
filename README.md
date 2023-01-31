@@ -52,8 +52,7 @@
 - Route 53 - DNSサーバ/ドメイン取得
 - ALB for SSL処理/負荷分散
 
-<img src="https://user-images.githubusercontent.com/110030968/206081111-351bd3a2-a0b0-4e02-a93e-d5ff41ae6365.svg">
-
+<img src="https://user-images.githubusercontent.com/110030968/215656898-5a6b8420-6688-46b1-b593-3cd3b7f8b17d.svg">
 
 ## 動機
 
