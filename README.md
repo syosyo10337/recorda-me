@@ -6,8 +6,8 @@
 このアプリは、日々の活動を15分単位で記録して、可視化できるアプリです。
 勉強時間やの運動から、Youtubeでダラダラしちゃった時間まで家計簿感覚で記録できます。
 
-<a href="https://www.recorda-me.link">https://www.recorda-me.link</a>
-
+~~<a href="https://www.recorda-me.link">https://www.recorda-me.link</a>~~
+転職活動終了に伴い、AWSのコストから逃げました。
 
 ## 実装した機能、技術
 <div style="padding-bottom: 5px">
